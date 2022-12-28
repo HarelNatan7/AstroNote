@@ -1,5 +1,5 @@
-const { Route, Routes } = ReactRouterDOM
 const Router = ReactRouterDOM.HashRouter
+const { Route, Routes } = ReactRouterDOM
 
 import { AppHeader } from "./cmps/app-header.jsx"
 import { About } from "./views/about.jsx"
@@ -15,6 +15,7 @@ export function App() {
     return <section className="app-container flex">
         <Router >
 
+ 
             <section className="app-header">
                 <AppHeader />
             </section>
@@ -24,8 +25,10 @@ export function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/mail" element={<MailIndex />} />
                     <Route path="/mail/:mailId" element={<MailDetails />} />
-                    <Route path="/note" element={<NoteIndex />} />
-                    <Route path="/note/edit/:noteId" element={<NoteEdit />} />
+                    <Route path="/note" element={<NoteIndex />} >
+                        <Route path="/note/edit" element={<NoteEdit />} />
+                        <Route path="/note/edit/:noteId" element={<NoteEdit />} />
+                    </Route>
                 </Routes>
             </main>
             <UserMsg />

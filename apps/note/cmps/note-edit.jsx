@@ -1,5 +1,5 @@
 const { useState, useEffect } = React
-const { useNavigate, useParams, Link } = ReactRouterDOM
+const { useNavigate, useParams, Link, useOutletContext } = ReactRouterDOM
 
 import { noteService } from "../services/note.service.js"
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
@@ -9,6 +9,7 @@ export function NoteEdit() {
     const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
     const navigate = useNavigate()
     const { noteId } = useParams()
+    const [notes, setNotes, isAddingNote, setIsAddingNote] = useOutletContext()
 
     useEffect(() => {
         if (!noteId) return
@@ -28,8 +29,12 @@ export function NoteEdit() {
         // ev.preventDefault()
         noteService.save(noteToEdit)
             .then(() => {
-                showSuccessMsg('Note Saved')
-                navigate('/')
+                noteService.query().then(notes => {
+                    setNotes(notes)
+                    setIsAddingNote(!isAddingNote)
+                    showSuccessMsg('Note Saved')
+                    navigate('/note')
+                })
             })
     }
 
@@ -51,7 +56,7 @@ export function NoteEdit() {
             name="txt"
             id="txt"
             value={noteToEdit.info.txt}
-            placeholder="Take A Note..."
+            placeholder="Write Here..."
             onChange={handleChange}
         />
         <button onClick={onSaveNote}>Save Note</button>
