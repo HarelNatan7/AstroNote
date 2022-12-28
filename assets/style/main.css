@@ -15,9 +15,8 @@
 @import 'cmps/app-header.css';
 @import 'cmps/app-content.css';
 @import 'cmps/email-list.css';
-
-
-/* @import 'cmps/user-msg.css'; */
+@import 'cmps/note-list.css';
+@import 'cmps/user-msg.css';
 /* @import 'cmps/books-filter.css'; */
 /* @import 'cmps/books-list.css'; */
 /* @import 'cmps/books-preview.css'; */

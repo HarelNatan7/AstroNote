@@ -1,0 +1,31 @@
+/* Note List */
+
+.notes-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 27px;
+}
+
+.note {
+    position: relative;
+    background-color: #404040;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.7);
+    padding: 7px;
+    min-height: 5%;
+    min-width: 5%;
+    cursor: pointer;
+}
+
+.note-btn-container {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+}
+
+.note button {
+    background-color: transparent;
+    color: #bebebf;
+    border: 0;
+    cursor: pointer;
+}

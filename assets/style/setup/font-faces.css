@@ -27,15 +27,33 @@
 }
 
 .fa-home::before {
-    content:"\f015";
+    content: "\f015";
 }
 
 .fa-mail::before {
     content: "\f0e0";
 }
+
 .fa-about::before {
     content: "\f091";
 }
+
 .fa-notes::before {
     content: "\f0eb";
+}
+
+.fa-pin::before {
+    content: "\f08d";
+}
+
+.fa-color::before {
+    content: "\f53f";
+}
+
+.fa-edit::before {
+    content: "\f044";
+}
+
+.fa-delete::before {
+    content: "\f2ed";
 }

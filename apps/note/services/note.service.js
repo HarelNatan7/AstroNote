@@ -47,33 +47,50 @@ function _createNotes() {
             {
                 id: "n101",
                 type: "note-txt",
-                isPinned: true,
+                isPinned: false,
                 info: {
-                    txt: "Fullstack Me Baby!"
+                    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sit sequi commodi inventore amet facilis vel accusamus."
                 }
             },
             {
                 id: "n102",
-                type: "note-img",
+                type: "note-txt",
+                isPinned: false,
                 info: {
-                    url: "http://some-img/me",
-                    title: "Bobi and Me"
-                },
-                style: {
-                    backgroundColor: "#fff"
+                    txt: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, ut."
                 }
             },
             {
                 id: "n103",
-                type: "note-todos",
+                type: "note-txt",
+                isPinned: false,
                 info: {
-                    label: "Get my stuff together",
-                    todos: [
-                        { txt: "Driving liscence", doneAt: null },
-                        { txt: "Coding power", doneAt: 187111111 }
-                    ]
+                    txt: "    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat vitae eligendi similique provident? Deserunt, modi."
                 }
-            }
+            },
+            // {
+            //     id: "n102",
+            //     type: "note-img",
+            //     info: {
+            //         url: "http://some-img/me",
+            //         title: "Bobi and Me"
+            //     },
+            //     style: {
+            //         backgroundColor: "#fff"
+            //     }
+            // },
+            // {
+            //     id: "n103",
+            //     type: "note-todos",
+            //     info: {
+            //         label: "Get my stuff together",
+            //         todos: [
+            //             { txt: "Driving liscence", doneAt: null },
+            //             { txt: "Coding power", doneAt: 187111111 }
+            //         ]
+            //     }
+            // }
         ]
+        utilService.saveToStorage(NOTES_KEY, notes)
     }
 }
