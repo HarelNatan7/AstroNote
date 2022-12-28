@@ -6,11 +6,17 @@
 
 
 .email-container {
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+    /* overflow-x: hidden; */
     display: flex;
-    /* justify-content: space-between; */
     cursor: pointer;
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
     box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+.email-container:hover .btn-list-hidden {
+    opacity: 1;
 }
 
 .email-container span {
@@ -25,8 +31,16 @@
 }
 
 .btn-list-container * {
+    background-color: var(--mainBgc);
     margin-inline-end: 5px;
     margin-inline-start: 5px;
+}
+
+.input-list {
+    position: relative;
+    top: 4px;
+    width: 1rem;
+    height: 1rem;
 }
 
 .mail-list-details {
@@ -46,4 +60,30 @@
 
 .expanded-btn button {
     margin-inline-end: 10px;
+}
+
+.btn-list-hidden {
+    position: relative;
+    top: 0.5rem;
+    right: 0px;
+    transition: 0.5s;
+    opacity: 0;
+    height: 0px;
+}
+
+.btn-list-hidden * {
+    background-color: var(--mainBgc);
+    position: relative;
+    left: 0px;
+    margin-inline-end: 5px;
+    margin-inline-start: 5px;
+}
+
+.btn-list-hidden:hover {
+    background-color: var(--mainBgc);
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
 }
