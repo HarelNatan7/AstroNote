@@ -10,15 +10,15 @@ export function AppHeader() {
                     <NavLink to="/" className="fa-solid fa-home"><span>Home</span></NavLink>
                 </div>
                 <div className="nav-link-container">
-                    <NavLink to="/about" className="fa-solid fa-about"><span>About</span></NavLink>
-                </div>
-                <div className="nav-link-container">
                     <NavLink to="/mail" className="fa-solid fa-mail"><span>Mail</span></NavLink>
                 </div>
                 <div className="nav-link-container">
                     <NavLink to="/note" className="fa-solid fa-notes"><span>Notes</span></NavLink>
                 </div>
+                <div className="nav-link-container">
+                    <NavLink to="/about" className="fa-solid fa-about"><span>About</span></NavLink>
+                </div>
             </nav>
         </div>
-    </header>
+    </header >
 }

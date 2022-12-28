@@ -8,26 +8,16 @@ export function MailIndex() {
     const [mails, setEmails] = useState([])
     const [mailToUpdate, setMailToUpdate] = useState('')
 
-
-
-
     useEffect(() => {
         loadEmails()
-
-
     }, [mailToUpdate])
 
-
-
-
-
     function updateMail(mailToUpdate) {
-
         console.log(mailToUpdate.id);
         mailServices.put(mailToUpdate).then((mail) => {
+            console.log(mail);
             setMailToUpdate(mail)
         })
-
     }
 
     function loadEmails() {
@@ -36,11 +26,9 @@ export function MailIndex() {
         })
     }
 
-
-
     return (
         <div>
-            <h1>Welcome mail</h1>
+            <h1 >Welcome mail</h1>
             <MailList mails={mails} updateMail={updateMail} />
         </div>
     )

@@ -33,6 +33,7 @@ function createEmails() {
                 isRead: false,
                 isStared: false,
                 isChecked: false,
+                isTrash: false,
                 sentAt: 1551133930594,
                 to: 'user@NoteHub.com',
                 from: 'nana@nana.com'
@@ -44,6 +45,7 @@ function createEmails() {
                 isRead: false,
                 isStared: false,
                 isChecked: false,
+                isTrash: false,
                 sentAt: 1551133930594,
                 to: 'user@NoteHub.com',
                 from: 'lala@lala.com'
@@ -55,6 +57,7 @@ function createEmails() {
                 isRead: false,
                 isStared: false,
                 isChecked: false,
+                isTrash: false,
                 sentAt: 1551133930594,
                 to: 'user@NoteHub.com',
                 from: 'mamam@mama.com'

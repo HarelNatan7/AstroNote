@@ -13,7 +13,7 @@ import { NoteEdit } from "./apps/note/cmps/note-edit.jsx"
 
 export function App() {
     return <section className="app-container flex">
-        <Router>
+        <Router >
 
  
             <section className="app-header">
