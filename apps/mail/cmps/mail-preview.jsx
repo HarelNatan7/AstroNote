@@ -1,19 +1,32 @@
+const { useState, useEffect, Fragment } = React
 
 
-const { Fragment } = React
+export function MailPreview({ mail }) {
+    const [isExpanded, setIsExpanded] = useState(false)
 
-export function MailPreview({ email }) {
-
-
-    if (!email) return <h1>loading...</h1>
+    if (!mail) return <h1>loading...</h1>
     return (
         <Fragment>
-            <td>{email.from}</td>
-            <td>{email.subject}</td>
-            <td>{email.body}</td>
-            <td>{new Date(email.sentAt).toLocaleString('default', {
-                month: 'long',
-            })}</td>
+            <tr className="email-container" onClick={() => {
+                setIsExpanded(!isExpanded)
+            }}>
+                <td>{mail.from}</td>
+                <td>{mail.subject}</td>
+                <td>{mail.body}</td>
+                <td>{new Date(mail.sentAt).toLocaleString('default', {
+                    month: 'long',
+                })}</td>
+            </tr>
+
+            <tr className="expanded-subject-btn" hidden={!isExpanded}>
+                <td colSpan='3' className="expanded-subject">{mail.subject}</td>
+                <td className="expanded-btn">
+                    <button className="fa-solid fa-delete"></button>
+                    <button className="fa-solid fa-delete"></button>
+                </td>
+            </tr>
+
+
         </Fragment>
     )
 }

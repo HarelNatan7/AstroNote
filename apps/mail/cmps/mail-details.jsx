@@ -25,8 +25,11 @@ export function MailDetails() {
     if (!mail) return <h1>loading...</h1>
     return (
         <div className="mail-details">
-            <div>buttons comes here
+            <div className="btn-detail-container">
 
+                <button className="fa-solid fa-delete"></button>
+                <button className="fa-regular fa-star"></button>
+                <button className="fa-regular fa-bookmark"></button>
             </div>
             <div className="subject-container">
                 <h1>{mail.subject}</h1>

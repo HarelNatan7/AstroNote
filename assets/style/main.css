@@ -14,7 +14,6 @@
 /* Components */
 @import 'cmps/app-header.css';
 @import 'cmps/app-content.css';
-@import 'cmps/email-list.css';
 @import 'cmps/note-list.css';
 @import 'cmps/user-msg.css';
 /* @import 'cmps/books-filter.css'; */
@@ -25,3 +24,6 @@
 /* @import 'cmps/long-txt.css'; */
 /* @import 'cmps/add-review.css'; */
 /* @import 'cmps/book-add.css'; */
+@import 'cmps/email-list.css';
+@import 'cmps/mail-preview.css';
+@import 'cmps/mail-details.css';

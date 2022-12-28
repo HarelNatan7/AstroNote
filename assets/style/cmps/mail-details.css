@@ -1,0 +1,10 @@
+.mail-details {
+    /* display: flex; */
+
+}
+
+.btn-detail-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.6em;
+}

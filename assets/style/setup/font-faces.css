@@ -57,3 +57,12 @@
 .fa-delete::before {
     content: "\f2ed";
 }
+
+.fa-star::before {
+    content: '\f005';
+}
+
+.fa-bookmark:before {
+    transform: rotate(90deg);
+    content: '\f02e';
+}
