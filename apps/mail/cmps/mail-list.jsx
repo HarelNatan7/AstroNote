@@ -1,26 +1,25 @@
-export function MailList({ emails }) {
-    console.log(emails);
+const { Link, useNavigate } = ReactRouterDOM
+const { useState, useEffect } = React
 
+import { MailPreview } from "./mail-preview.jsx";
+export function MailList({ mails }) {
+    const [clickedMailId, setClickedMailId] = useState('')
+    const navigate = useNavigate()
 
-    if (!emails) return <h1>loading...</h1>
+    useEffect(() => {
+        navigate(`/mail/${clickedMailId}`)
+
+    }, [clickedMailId]);
+
+    if (!mails) return <h1>loading...</h1>
     return (
         <table className="emails-container">
             <tbody>
                 {
-                    emails.map(email => <tr className="email-container" key={email.id}>
-                        {/* from container, need to add stared/labled/select */}
-                        <td>{email.from}</td>
-                        <td>{email.subject}</td>
-                        <td>{email.body}</td>
-                        <td>{new Date(email.sentAt).toLocaleString('default', {
-                            month: 'long',
-
-                        })}</td>
-
+                    mails.map(email => <tr className="email-container" key={email.id} onClick={() => setClickedMailId(email.id)}>
+                        <MailPreview email={email} />
                     </tr>)
                 }
-
-
             </tbody>
         </table>
 
