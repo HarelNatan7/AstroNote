@@ -1,0 +1,16 @@
+.emails-container {
+    width: 100%;
+}
+
+
+.email-container {
+    display: flex;
+    vertical-align: inherit;
+    border-color: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    box-shadow: inset 0 1px 0 0 rgb(100 121 143 / 12%);
+    box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
+}
