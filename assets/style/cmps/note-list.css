@@ -14,7 +14,6 @@
     box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.7);
     padding: 12px;
     min-height: 7vh;
-    /* min-width: 5%; */
     cursor: pointer;
 }
 
@@ -25,8 +24,9 @@
     transition: .3s;
     opacity: 0;
 }
-.note-btn-container:hover {
-    opacity: 1;
+
+.note:hover .note-btn-container{
+opacity: 1;
 }
 
 .note button {

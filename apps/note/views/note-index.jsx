@@ -52,11 +52,12 @@ export function NoteIndex() {
         {userMsg && <UserMsg msg={userMsg} />}
         <div className="inputs-container flex column">
             <input type="text" className="search-input" placeholder="Search Note" />
-            {!isAddingNote && <input type="text" placeholder="Take A Note..."
+            {!isAddingNote && <input type="text" className="first-add-input" placeholder="Take A Note..."
                 onClick={() => { setIsAddingNote(!isAddingNote) }} />}
             <div className="nested-route">
             <Outlet context={[notes, setNotes, isAddingNote, setIsAddingNote]} />
             </div>
+            <div></div>
         </div>
         <NoteList notes={notes} onRemoveNote={onRemoveNote} />
         {isLoading && <div>Loading..</div>}

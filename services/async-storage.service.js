@@ -16,6 +16,7 @@ function get(entityType, entityId) {
     return query(entityType).then(entities => {
         const entity = entities.find(entity => entity.id === entityId)
         if (!entity) throw new Error(`Get failed, cannot find entity with id: ${entityId} in: ${entityType}`)
+        console.log('entity:', entity)
         return entity
     })
 }
@@ -31,6 +32,7 @@ function post(entityType, newEntity) {
 }
 
 function put(entityType, updatedEntity) {
+    console.log('updatedEntity:', updatedEntity)
     return query(entityType).then(entities => {
         const idx = entities.findIndex(entity => entity.id === updatedEntity.id)
         if (idx < 0) throw new Error(`Update failed, cannot find entity with id: ${entityId} in: ${entityType}`)

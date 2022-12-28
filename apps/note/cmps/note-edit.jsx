@@ -1,7 +1,8 @@
-const { useState, useEffect } = React
+const { useState, useEffect, useRef } = React
 const { useNavigate, useParams, Link, useOutletContext } = ReactRouterDOM
 
 import { noteService } from "../services/note.service.js"
+import { utilService } from "../../../services/util.service.js"
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 
 export function NoteEdit() {
@@ -9,9 +10,11 @@ export function NoteEdit() {
     const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
     const navigate = useNavigate()
     const { noteId } = useParams()
+    const addInput = useRef()
     const [notes, setNotes, isAddingNote, setIsAddingNote] = useOutletContext()
 
     useEffect(() => {
+        utilService.animateCSS(addInput.current, 'fadeInUp')
         if (!noteId) return
         loadNote()
     }, [])
@@ -50,7 +53,11 @@ export function NoteEdit() {
         })
     }
 
-    return <div className="add-note-container">
+    function handleKeyPress(event) {
+        if(event.key === 'Enter') onSaveNote()
+      }
+
+    return <div className="add-note-container flex" ref={addInput}>
         <input type="text"
             className="add-input"
             name="txt"
@@ -58,7 +65,15 @@ export function NoteEdit() {
             value={noteToEdit.info.txt}
             placeholder="Write Here..."
             onChange={handleChange}
+            onKeyDown={handleKeyPress}
         />
-        <button onClick={onSaveNote}>Save Note</button>
     </div>
 }
+
+// return <input type="text" onKeyDown={this._handleKeyDown} />;
+// },
+// _handleKeyDown: function(e) {
+//   if (e.key === 'Enter') {
+//     console.log('do validate');
+//   }
+// }

@@ -1,6 +1,7 @@
 const { useNavigate, useParams, Link } = ReactRouterDOM
+const { useRef } = React
 
-import { NoteReview } from "./note-review.jsx"
+import { NotePreview } from "./note-preview.jsx"
 
 export function NoteList({ notes, onRemoveNote }) {
 
@@ -10,13 +11,15 @@ export function NoteList({ notes, onRemoveNote }) {
     //     console.log('id:', id)
     //     navigate(`/note/edit/${id}`)
     // } 
-    
-    return <ul className="notes-container grid clean-list" contenteditable="true">
-        {notes.map(note => 
-            <li draggable className="note" key={note.id} >
-                <NoteReview note={note} onRemoveNote={onRemoveNote}/>
+
+   
+
+    return <ul className="notes-container grid clean-list"  >
+        {notes.map(note =>
+            <li className="note" key={note.id} >
+                <NotePreview note={note} onRemoveNote={onRemoveNote} />
             </li>
         )}
     </ul>
-    
+
 }

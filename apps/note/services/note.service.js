@@ -22,6 +22,7 @@ function query() {
 }
 
 function get(noteId) {
+    console.log('noteId:', noteId)
     return storageService.get(NOTES_KEY, noteId)
 }
 
@@ -30,6 +31,7 @@ function remove(noteID) {
 }
 
 function save(note) {
+    console.log('note:', note)
     if (note.id) {
         return storageService.put(NOTES_KEY, note)
     } else {
