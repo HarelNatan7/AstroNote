@@ -8,6 +8,7 @@ import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.servic
 export function NoteEdit() {
 
     const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
+    const [noteType, setNoteType] = useState('note-txt')
     const navigate = useNavigate()
     const { noteId } = useParams()
     const addInput = useRef()
@@ -18,6 +19,12 @@ export function NoteEdit() {
         if (!noteId) return
         loadNote()
     }, [])
+    
+    
+    useEffect(() => {
+        console.log('noteType:', noteType)
+
+    }, [noteType])
 
     function loadNote() {
         noteService.get(noteId)
@@ -54,11 +61,18 @@ export function NoteEdit() {
     }
 
     function handleKeyPress(event) {
-        if(event.key === 'Enter') onSaveNote()
-      }
+        if (event.key === 'Enter') onSaveNote()
+    }
 
     return <div className="add-note-container flex" ref={addInput}>
+        <div className="add-note-btn-container">
+            <button className="fa-solid fa-note" title="Note" onClick={() => setNoteType('note-type')} ></button>
+            <button className="fa-solid fa-img" title="Image" onClick={() => setNoteType('img-type')} ></button>
+            <button className="fa-solid fa-video" title="Video" onClick={() => setNoteType('video-type')} ></button>
+            <button className="fa-solid fa-list" title="List" onClick={() => setNoteType('list-type')} ></button>
+        </div>
         <input type="text"
+            required
             className="add-input"
             name="txt"
             id="txt"
@@ -69,11 +83,3 @@ export function NoteEdit() {
         />
     </div>
 }
-
-// return <input type="text" onKeyDown={this._handleKeyDown} />;
-// },
-// _handleKeyDown: function(e) {
-//   if (e.key === 'Enter') {
-//     console.log('do validate');
-//   }
-// }

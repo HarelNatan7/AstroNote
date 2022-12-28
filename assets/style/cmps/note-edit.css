@@ -1,3 +1,33 @@
 .add-note-container {
+    position: relative;
     justify-content: center;
+}
+
+
+.add-note-btn-container {
+    position: absolute;
+    top: 7px;
+    right: 100px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: .7s;
+}
+
+.add-note-btn-container button {
+    margin-right: 5px;
+    background-color: transparent;
+    font-size: 1.3rem;
+}
+
+.add-note-container:hover .add-note-btn-container {
+    opacity: 1;
+}
+
+@media (min-width: 1400px) {
+    .add-note-btn-container {
+        position: absolute;
+        top: 7px;
+        right: 119px;
+        font-size: 1.5rem;
+    }
 }
