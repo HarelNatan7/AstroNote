@@ -1,14 +1,11 @@
 * {
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--txtClr);
 }
 
 body {
     margin: 0;
-}
-
-#root {
-display: flex;
 }
 
 h1,
@@ -44,3 +41,11 @@ button {
 button:hover {
     opacity: 0.7;
 }
+
+input {
+    border-radius: 7px;
+    border: 0;
+    background-color:#525356;
+    padding: 8px;
+    margin: 3px 0;
+  }

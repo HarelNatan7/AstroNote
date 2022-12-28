@@ -9,10 +9,12 @@ import { NoteIndex } from "./apps/note/views/note-index.jsx"
 
 
 export function App() {
-    return <Router>
-        <section className="app-header">
-            <AppHeader />
-        </section>
+    return <section className="app-container flex">
+        <Router>
+
+            <section className="app-header">
+                <AppHeader />
+            </section>
             <main className="app-content">
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -21,5 +23,6 @@ export function App() {
                     <Route path="/note" element={<NoteIndex />} />
                 </Routes>
             </main>
-    </Router>
+        </Router>
+    </section>
 }

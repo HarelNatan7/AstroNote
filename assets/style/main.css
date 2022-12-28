@@ -4,11 +4,11 @@
 
 /* Base */
 @import 'base/base.css';
-/* @import 'base/helpers.css'; */
+@import 'base/helpers.css';
 /* @import 'base/layout.css'; */
 
 /* Views */
-/* @import 'views/home.css'; */
+@import 'views/note-index.css';
 /* @import 'views/about.css'; */
 
 /* Components */

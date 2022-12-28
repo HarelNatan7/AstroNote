@@ -1,5 +1,6 @@
-export function NoteList() {
+export function NoteList({notes}) {
 
-    return <div>note list</div>
+    return <div contenteditable="true"><div className="bla">
+        blaaaaaaaa</div></div>
 
 }

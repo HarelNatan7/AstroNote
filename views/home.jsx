@@ -6,5 +6,7 @@ export function Home() {
     <img src="assets/img/react.png" />
     <img src="assets/img/react.png" />
     <img src="assets/img/react.png" />
+    <img src="assets/img/react.png" />
+    <img src="assets/img/react.png" />
 </section>
 }
