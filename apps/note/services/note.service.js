@@ -1,5 +1,5 @@
-import { storageService } from "../../../services/async-storage.service.js";
-import { utilService } from "../../../services/util.service.js";
+import { storageService } from '../../../services/async-storage.service.js';
+import { utilService } from '../../../services/util.service.js';
 
 const NOTES_KEY = 'notesDB'
 _createNotes()
@@ -10,6 +10,7 @@ export const noteService = {
     post,
     remove,
     save,
+    getEmptyNote,
     // getDefaultFilter,
 }
 
@@ -40,53 +41,64 @@ function post(newNote) {
     return storageService.post(NOTES_KEY, newNote)
 }
 
+function getEmptyNote() {
+    return  {
+            id: '',
+            type: 'note-txt',
+            isPinned: false,
+            info: {
+                txt: ''
+            }
+    }
+}
+
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
     if (!notes || !notes.length) {
         notes = [
             {
-                id: "n101",
-                type: "note-txt",
+                id: 'n101',
+                type: 'note-txt',
                 isPinned: false,
                 info: {
-                    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sit sequi commodi inventore amet facilis vel accusamus."
+                    txt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sit sequi commodi inventore amet facilis vel accusamus.'
                 }
             },
             {
-                id: "n102",
-                type: "note-txt",
+                id: 'n102',
+                type: 'note-txt',
                 isPinned: false,
                 info: {
-                    txt: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, ut."
+                    txt: '    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, ut.'
                 }
             },
             {
-                id: "n103",
-                type: "note-txt",
+                id: 'n103',
+                type: 'note-txt',
                 isPinned: false,
                 info: {
-                    txt: "    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat vitae eligendi similique provident? Deserunt, modi."
+                    txt: '    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat vitae eligendi similique provident? Deserunt, modi.'
                 }
             },
             // {
-            //     id: "n102",
-            //     type: "note-img",
+            //     id: 'n102',
+            //     type: 'note-img',
             //     info: {
-            //         url: "http://some-img/me",
-            //         title: "Bobi and Me"
+            //         url: 'http://some-img/me',
+            //         title: 'Bobi and Me'
             //     },
             //     style: {
-            //         backgroundColor: "#fff"
+            //         backgroundColor: '#fff'
             //     }
             // },
             // {
-            //     id: "n103",
-            //     type: "note-todos",
+            //     id: 'n103',
+            //     type: 'note-todos',
             //     info: {
-            //         label: "Get my stuff together",
+            //         label: 'Get my stuff together',
             //         todos: [
-            //             { txt: "Driving liscence", doneAt: null },
-            //             { txt: "Coding power", doneAt: 187111111 }
+            //             { txt: 'Driving liscence', doneAt: null },
+            //             { txt: 'Coding power', doneAt: 187111111 }
             //         ]
             //     }
             // }
