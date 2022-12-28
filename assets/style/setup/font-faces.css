@@ -1,0 +1,41 @@
+@font-face {
+    font-family: fa-brands;
+    src: url(/assets/font-awesome/fa-brands-400.ttf);
+}
+
+@font-face {
+    font-family: fa-regular;
+    src: url(/assets/font-awesome/fa-regular-400.ttf);
+}
+
+@font-face {
+    font-family: fa-solid;
+    src: url(/assets/font-awesome/fa-solid-900.ttf);
+}
+
+
+.fa-solid {
+    font-family: fa-solid;
+}
+
+.fa-regular {
+    font-family: fa-regular;
+}
+
+.fa-brands {
+    font-family: fa-brands;
+}
+
+.fa-home::before {
+    content:"\f015";
+}
+
+.fa-mail::before {
+    content: "\f0e0";
+}
+.fa-about::before {
+    content: "\f091";
+}
+.fa-notes::before {
+    content: "\f0eb";
+}
