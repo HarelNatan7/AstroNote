@@ -1,10 +1,10 @@
 const { useState, useEffect } = React
 
 import { MailList } from "../cmps/mail-list.jsx"
-import { emailServices } from "../services/mail.service.js"
+import { mailServices } from "../services/mail.service.js"
 
 export function MailIndex() {
-    const [emails, setEmails] = useState([])
+    const [mails, setEmails] = useState([])
 
     useEffect(() => {
         loadEmails()
@@ -13,17 +13,17 @@ export function MailIndex() {
 
 
     function loadEmails() {
-        emailServices.query().then(emails => {
-            setEmails(emails)
+        mailServices.query().then(mails => {
+            setEmails(mails)
         })
     }
 
-    console.log(emails);
+    console.log(mails);
 
     return (
         <div>
             <h1>Welcome mail</h1>
-            <MailList emails={emails} />
+            <MailList mails={mails} />
         </div>
     )
 
