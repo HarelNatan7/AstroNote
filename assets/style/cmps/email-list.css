@@ -6,18 +6,44 @@
 
 
 .email-container {
-
-    vertical-align: inherit;
-    border-color: inherit;
+    display: flex;
+    /* justify-content: space-between; */
     cursor: pointer;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow-x: hidden;
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
     box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
-.email-container td {
+.email-container span {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.btn-list-container {
+    position: relative;
+    margin-top: 8px;
+
+}
+
+.btn-list-container * {
+    margin-inline-end: 5px;
+    margin-inline-start: 5px;
+}
+
+.mail-list-details {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.btn-list-container {
+    position: relative;
+    z-index: 10;
+}
+
+.expanded-body {
+    padding: 1.6rem;
+}
+
+.expanded-btn button {
+    margin-inline-end: 10px;
 }

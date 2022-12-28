@@ -1,3 +1,23 @@
 .expanded-subject {
     font-size: 2em;
 }
+
+.expanded-subject-btn {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.main-expanded {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1.6rem;
+    border-bottom: 1px solid var(--txtClr);
+    background-color: #36373d;
+    max-height: 100%;
+}
+
+.stared {
+    color: gold;
+}

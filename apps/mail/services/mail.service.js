@@ -7,6 +7,7 @@ console.log('Hi')
 export const mailServices = {
     query,
     get,
+    put,
 }
 
 const EMAILS_KEY = 'emailsDB'
@@ -30,6 +31,8 @@ function createEmails() {
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
+                isStared: false,
+                isChecked: false,
                 sentAt: 1551133930594,
                 to: 'user@NoteHub.com',
                 from: 'nana@nana.com'
@@ -39,6 +42,8 @@ function createEmails() {
                 subject: 'Miss mama mama you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
+                isStared: false,
+                isChecked: false,
                 sentAt: 1551133930594,
                 to: 'user@NoteHub.com',
                 from: 'lala@lala.com'
@@ -48,6 +53,8 @@ function createEmails() {
                 subject: 'Miss lala lala you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
+                isStared: false,
+                isChecked: false,
                 sentAt: 1551133930594,
                 to: 'user@NoteHub.com',
                 from: 'mamam@mama.com'
@@ -58,8 +65,12 @@ function createEmails() {
 }
 
 
+function put(updatedMail) {
+
+    return storageService.put(EMAILS_KEY, updatedMail)
+}
+
 function get(mailId) {
-    console.log('mailId', mailId);
 
     return storageService.get(EMAILS_KEY, mailId)
 }

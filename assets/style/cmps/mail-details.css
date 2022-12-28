@@ -1,10 +1,15 @@
-.mail-details {
-    /* display: flex; */
-
-}
-
-.btn-detail-container {
+.btn-nav-container {
     display: flex;
     justify-content: flex-end;
-    padding: 1.6em;
+    padding: 1.6rem;
+}
+
+
+.arrow-back {
+    margin-inline-start: 2em;
+}
+
+.btn-detail-container button {
+    margin-inline-end: 10px;
+
 }
