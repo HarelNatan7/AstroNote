@@ -2,7 +2,7 @@ const { Link, useNavigate } = ReactRouterDOM
 const { useState, useEffect } = React
 
 import { MailPreview } from "./mail-preview.jsx";
-export function MailList({ mails }) {
+export function MailList({ mails, updateMail }) {
     // const [clickedMailId, setClickedMailId] = useState('')
     const navigate = useNavigate()
 
@@ -13,15 +13,15 @@ export function MailList({ mails }) {
 
     if (!mails) return <h1>loading...</h1>
     return (
-        <table className="emails-container">
-            <tbody>
+        <div className="emails-container">
+            <div>
                 {
                     mails.map(mail =>
-                        <MailPreview key={mail.id} mail={mail} />
+                        <MailPreview key={mail.id} mail={mail} updateMail={updateMail} />
                     )
                 }
-            </tbody>
-        </table>
+            </div>
+        </div>
 
 
 
