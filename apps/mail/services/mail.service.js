@@ -8,7 +8,9 @@ export const mailServices = {
     query,
     get,
     put,
-    getFilterCriteria
+    post,
+    getFilterCriteria,
+    getDefaultSentMail,
 }
 
 const MAILS_KEY = 'mailsDB'
@@ -16,7 +18,7 @@ const USER_KEY = 'userDB'
 
 const loggedinUser = {
     mail: 'user@NoteHub.com',
-    fullname: 'The Oren/Harel'
+    fullname: 'Oren'
 }
 createEmails()
 
@@ -31,7 +33,7 @@ function createEmails() {
                 id: 'e101',
                 name: 'nana',
                 subject: 'Miss you!',
-                body: 'Would love to catch up sometimes',
+                body: 'Would adadaf love to catch up sometimes',
                 isRead: false,
                 isStared: false,
                 isChecked: false,
@@ -44,7 +46,7 @@ function createEmails() {
                 id: 'e102',
                 name: 'lala',
                 subject: 'Miss mama mama you!',
-                body: 'Would love to catch up sometimes',
+                body: 'Would masdad love to catch up sometimes',
                 isRead: false,
                 isStared: false,
                 isChecked: false,
@@ -57,7 +59,7 @@ function createEmails() {
                 id: 'e103',
                 name: 'mamam',
                 subject: 'Miss lala lala you!',
-                body: 'Would love to catch up sometimes',
+                body: 'Would  kaka love to catch up sometimes',
                 isRead: false,
                 isStared: false,
                 isChecked: false,
@@ -83,34 +85,69 @@ function get(mailId) {
 }
 
 function query(criteria = getFilterCriteria()) {
-    console.log('criteria', criteria);
+
+    console.log('criteriaService', criteria);
 
     return storageService.query(MAILS_KEY).then(mails => {
-        if (criteria.txt) {
+        // console.log('mails', mails);
+
+        if (criteria.status === 'inbox' && !criteria.txt) {
             const regex = new RegExp(criteria.txt, 'i')
-            mails = mails.filter(mail => {
-
-                // if (!regex.test(mail.name)) {
-                //     return 
-                // }
-                return regex.test(mail.subject)
-
-
+            return mails.filter((mail) => {
+                if (mail.from !== loggedinUser.mail) {
+                    return mail
+                }
             })
-            //     || mails.filter(mail => regex.test(mail.subject)) ||
-            //     mails.filter(mail => regex.test(mail.body))
-            // console.log('mails', mails);
+        }
+
+        if (criteria.status === 'star' && criteria.isStared) {
+            // console.log('filter stars');
+
+            return mails.filter(mail => mail.isStared === criteria.isStared)
 
         }
+
+        if (criteria.txt) {
+            const regex = new RegExp(criteria.txt, 'i')
+            mails = mails.filter((mail, idx) => {
+                console.log('hii im here too');
+
+                return (regex.test(mail.name) || regex.test(mail.subject) || regex.test(mail.body))
+            })
+        }
+
+        // console.log('mail', mails);
+        // console.log('criteria', criteria);
+
         return mails
     })
 
 }
 
+function post(mail) {
 
+    return storageService.post(MAILS_KEY, mail)
+}
+
+
+function getDefaultSentMail() {
+    const mailSent = {
+        name: loggedinUser.fullname,
+        subject: '',
+        body: '',
+        sentAt: Date.now(),
+        to: '',
+        isRead: false,
+        isStared: false,
+        isChecked: false,
+        isTrash: false,
+        from: loggedinUser.mail
+    }
+    return mailSent
+}
 function getFilterCriteria() {
     const criteria = {
-        status: '',
+        status: 'inbox',
         txt: '',
         isRead: true,
         isStared: true,

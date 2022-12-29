@@ -106,3 +106,27 @@
 .fa-magnifying-glass:before {
     content: '\f002';
 }
+
+.fa-pencil {
+    font-size: 1.5rem;
+
+}
+
+.fa-pencil:before {
+
+    content: '\f002';
+}
+
+.fa-inbox {
+    font-size: 1.2rem;
+}
+
+.fa-inbox:before {
+
+    content: '\f01c';
+}
+
+.fa-xmark:before {
+
+    content: '\f01c';
+}

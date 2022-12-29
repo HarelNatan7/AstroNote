@@ -1,0 +1,56 @@
+.side-bar-filter {
+    width: 3em;
+    height: 100vh;
+    background-color: var(--navClr);
+    position: fixed;
+    right: 0;
+    display: flex;
+    border-radius: 10px;
+    transition: 0.5s;
+    z-index: 10;
+    justify-content: flex-end;
+    color: var(--txtClr);
+}
+
+.side-bar-filter:hover {
+    width: 140px;
+
+}
+
+.btn-side-bar-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.btn-side-bar-container * {
+    background-color: var(--navClr);
+    color: var(--txtClr);
+
+}
+
+.side-bar-filter:hover .fa-pencil::after {
+    transition: 0.5s;
+}
+
+.side-bar-filter:hover .compose::before {
+    font-size: 1rem;
+    content: "compose";
+    text-transform: lowercase;
+}
+
+.compose-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.inbox-container {
+    display: flex;
+}
+
+.compose-container *:hover {
+    /* color: antiquewhite;/ */
+}
