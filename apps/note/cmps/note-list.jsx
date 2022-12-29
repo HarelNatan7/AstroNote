@@ -5,21 +5,10 @@ import { NotePreview } from "./note-preview.jsx"
 
 export function NoteList({ notes, onRemoveNote }) {
 
-    const navigate = useNavigate()
-
-    // function onSelectNote(id) {
-    //     console.log('id:', id)
-    //     navigate(`/note/edit/${id}`)
-    // } 
-
-   
+    // const navigate = useNavigate()
 
     return <ul className="notes-container grid clean-list"  >
-        {notes.map(note =>
-            <li className="note" key={note.id} >
-                <NotePreview note={note} onRemoveNote={onRemoveNote} />
-            </li>
-        )}
+        {notes.map(note => <NotePreview note={note} key={note.id} onRemoveNote={onRemoveNote} />)}
     </ul>
 
 }

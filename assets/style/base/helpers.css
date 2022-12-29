@@ -2,41 +2,67 @@
 
 .flex {
     display: flex;
-  }
+}
+
 .flex.row {
     flex-direction: row;
-  }
-  
-  .flex.column{
-      flex-direction: column;
-  }
-  
-  .flex.justify-center{
-      justify-content: center;
-  }
-  
-  .flex.justify-between{
-      justify-content: space-between;
-  }
-  
-  .flex.align-center{
-      align-items: center;
-  }
+}
 
-  .grid {
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.justify-center {
+    justify-content: center;
+}
+
+.flex.justify-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.grid {
     display: grid;
-  }
-  
-  /* text helpers */
-  
-  .colored-text {
-      color: var(--clr3);
-  }
-  
-  /* list helpers */
-  
-  .clean-list {
-      padding: 0;
-      margin: 0;
-      list-style-type: none;
-  }
+}
+
+/* text helpers */
+
+.colored-text {
+    color: var(--clr3);
+}
+
+/* list helpers */
+
+.clean-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+
+.sandybrown {
+    background-color: sandybrown;
+}
+
+.lightsalmon {
+    background-color: lightsalmon;
+}
+
+.lightpink {
+    background-color: lightpink;
+}
+
+.lightblue {
+    background-color: lightblue;
+}
+
+.lightgreen {
+    background-color: lightgreen;
+}
+
+.lightseagreen {
+    background-color: lightseagreen;
+}

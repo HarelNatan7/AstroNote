@@ -1,20 +1,42 @@
+
+
 .add-note-container {
     position: relative;
     justify-content: center;
-
+    flex-direction: column;
+    padding: 7px;
+    border-radius: 7px;
+    background-color: #525356;
+    box-shadow: 0 1px 5px rgb(128, 128, 128);
+    width: 75%;
+    margin: 0 auto;
 }
 
+.title-input {
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.add-input {
+    font-size: 1.1rem;
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+    border: 0;
+}
 
 .add-note-btn-container {
     position: absolute;
-    top: 7px;
-    right: 100px;
+    right: 7px;
+    bottom: 10px;
     font-size: 1.5rem;
     opacity: 0;
     transition: .7s;
 }
 
 .add-note-btn-container button {
+    color: #bebebf;
     margin-right: 5px;
     background-color: transparent;
     font-size: 1.3rem;
@@ -25,10 +47,5 @@
 }
 
 @media (min-width: 1400px) {
-    .add-note-btn-container {
-        position: absolute;
-        top: 7px;
-        right: 119px;
-        font-size: 1.5rem;
-    }
+   
 }

@@ -51,11 +51,13 @@ export function NoteEdit() {
     function handleChange({ target }) {
         let { value, name: field, type } = target
         // value = (type === 'number') ? +value : value
+        console.log('field:', field)
         setNoteToEdit(prevNote => {
+            if (field === 'title') prevNote.info.title = value
             if (field === 'txt') prevNote.info.txt = value
             if (field === 'url') prevNote.info.url = value
             if (field === 'todos') {
-                if (value === ',') return
+                value = value.trim()
                 console.log('value:', value)
                 value.split(',').map(todo => prevNote.info.todos.push(todo))
                 console.log('prevNote.info.todos:', prevNote.info.todos)
@@ -70,6 +72,12 @@ export function NoteEdit() {
     }
 
     return <div className="add-note-container flex" ref={addInput}>
+        <input type="text"
+            className="title-input"
+            placeholder="Title"
+            name="title"
+            onChange={handleChange}
+        />
         <DynInput noteType={noteType} handleChange={handleChange} handleKeyPress={handleKeyPress} />
         <div className="add-note-btn-container">
             <button className="fa-solid fa-note" title="Note" onClick={() => setNoteType('txt-note')} ></button>
@@ -93,54 +101,48 @@ function DynInput(props) {
     }
 }
 
-function NoteInput({ noteType, handleChange, handleKeyPress }) {
+function NoteInput({ handleChange, handleKeyPress }) {
     return <input type="text"
         required
         className="add-input"
         name="txt"
-        id="txt"
-        // value={noteToEdit.info.txt}
         placeholder="Write Here..."
         onChange={handleChange}
         onKeyDown={handleKeyPress}
     />
 }
 
-function ImgInput({ noteType, handleChange, handleKeyPress }) {
+function ImgInput({ handleChange, handleKeyPress }) {
     return <input type="text"
         required
         className="add-input"
         name="url"
-        id="url"
-        // value={noteToEdit.info.txt}
         placeholder="Enter Img Url..."
         onChange={handleChange}
         onKeyDown={handleKeyPress}
     />
 }
 
-function VideoInput({ noteType, handleChange, handleKeyPress }) {
+function VideoInput({ handleChange, handleKeyPress }) {
     return <input type="text"
         required
         className="add-input"
         name="url"
-        id="url"
-        // value={noteToEdit.info.txt}
         placeholder="Enter Video Url..."
         onChange={handleChange}
         onKeyDown={handleKeyPress}
     />
 }
 
-function ListInput({ noteType, handleChange, handleKeyPress }) {
+function ListInput({ handleChange, handleKeyPress }) {
     return <input type="text"
         required
         className="add-input"
         name="todos"
-        id="todos"
-        // value={noteToEdit.info.txt}
         placeholder="Write Todos Seperated By Commas..."
-        onChange={handleChange}
-        onKeyDown={handleKeyPress}
+        onKeyDown={() => {
+            handleChange(event)
+            handleKeyPress(event)
+        }}
     />
 }

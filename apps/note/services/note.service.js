@@ -50,6 +50,9 @@ function getEmptyNote() {
         info: {
             txt: '',
             todos: []
+        },
+        style: {
+            backgroundColor: ''
         }
     }
 }
@@ -63,7 +66,11 @@ function _createNotes() {
                 type: 'txt-note',
                 isPinned: false,
                 info: {
-                    txt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sit sequi commodi inventore amet facilis vel accusamus.'
+                    txt: 'I Like To Move It Move It',
+                    todos: []
+                },
+                style: {
+                    backgroundColor: ''
                 }
             },
             {
@@ -71,7 +78,11 @@ function _createNotes() {
                 type: 'txt-note',
                 isPinned: false,
                 info: {
-                    txt: '    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, ut.'
+                    txt: '“A girl is allowed to be crazy as long as she is equally hot. Thus, if shes *this* crazy, she has to be *this* hot. You want the girl to be above this line. Also known as the ‘Vickie Mendoza Diagonal.’ This girl I dated. She played jump rope with that line. She’d shave her head, then lose 10 pounds. She’d stab me with a fork, then get a boob job. [Pauses] I should give her a call.”',
+                    todos: []
+                },
+                style: {
+                    backgroundColor: 'lightseagreen'
                 }
             },
             {
@@ -79,31 +90,39 @@ function _createNotes() {
                 type: 'txt-note',
                 isPinned: false,
                 info: {
-                    txt: '    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat vitae eligendi similique provident? Deserunt, modi.'
+                    txt: '“When I get sad, I stop being sad and be awesome instead.”',
+                    todos: []
+                },
+                style: {
+                    backgroundColor: ''
                 }
             },
-            // {
-            //     id: 'n102',
-            //     type: 'note-img',
-            //     info: {
-            //         url: 'http://some-img/me',
-            //         title: 'Bobi and Me'
-            //     },
-            //     style: {
-            //         backgroundColor: '#fff'
-            //     }
-            // },
-            // {
-            //     id: 'n103',
-            //     type: 'note-todos',
-            //     info: {
-            //         label: 'Get my stuff together',
-            //         todos: [
-            //             { txt: 'Driving liscence', doneAt: null },
-            //             { txt: 'Coding power', doneAt: 187111111 }
-            //         ]
-            //     }
-            // }
+            {
+                id: 'n104',
+                type: 'img-note',
+                info: {
+                    url: 'https://miro.medium.com/max/800/0*0ZgS_Z1-5VBdbN3u.png',
+                    title: 'The Best Framework'
+                },
+                style: {
+                    backgroundColor: 'sandybrown'
+                }
+            },
+            {
+                id: 'n105',
+                type: 'video-note',
+                info: {
+                    title: 'The Best Player In The World',
+                    url: 'https://www.youtube.com/embed/Rh6R4aMm_PA',
+                    todos: [
+                        { txt: 'Driving liscence', doneAt: null },
+                        { txt: 'Coding power', doneAt: 187111111 }
+                    ]
+                },
+                style: {
+                    backgroundColor: ''
+                }
+            }
         ]
         utilService.saveToStorage(NOTES_KEY, notes)
     }
