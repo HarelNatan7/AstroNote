@@ -1,0 +1,24 @@
+.mail-filter {
+    display: block;
+    padding: 1em;
+    background-color: var(--navClr);
+}
+
+.mail-filter form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.mail-filter input {
+    font-size: 1.3rem;
+    width: 30%;
+    height: 3rem;
+}
+
+.btn-search {
+    color: var(--txtClr);
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: var(--navClr);
+}

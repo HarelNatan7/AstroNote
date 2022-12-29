@@ -8,14 +8,13 @@ export function PreviewExpanded({ mail, updateMail }) {
     useEffect(() => {
 
     }, [mail]);
+
     function onClickExpandMail(mailId) {
         setCurrExpandedMailId(mailId)
         navigate(`/mail/${mailId}`)
     }
     function deleteFromExpand() {
-        mail.isTrash = true
-        updateMail(mail)
-        console.log('hii');
+        updateMail(mail, 'mailTrash')
     }
 
     return (
@@ -28,7 +27,7 @@ export function PreviewExpanded({ mail, updateMail }) {
                 </div>
             </div>
             <div >
-                <div>name: {mail.from}</div>
+                <div>{mail.name}: {'<' + mail.from + '>'}</div>
             </div>
             <div className="expanded-body" >
                 <div > {mail.body}</div>

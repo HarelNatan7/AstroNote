@@ -1,5 +1,5 @@
 .app-header {
-    color: beige;
+    color: var(--txtClr);
     background-color: var(--navClr);
     height: 100vh;
     width: 177px;

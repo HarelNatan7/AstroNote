@@ -86,12 +86,23 @@
 .fa-img:before {
     content: '\f03e';
 }
+
 .fa-video:before {
     content: '\f03d';
 }
+
 .fa-list:before {
     content: '\f0ca';
 }
+
 .fa-note:before {
     content: '\f249';
+}
+
+.fa-magnifying-glass {
+    font-size: 1.5rem;
+}
+
+.fa-magnifying-glass:before {
+    content: '\f002';
 }

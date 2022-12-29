@@ -5,6 +5,7 @@
     grid-template-rows: inherit;
     gap: 27px;
     margin: 0 2vw;
+
 }
 
 .note {
@@ -28,8 +29,8 @@
     opacity: 0;
 }
 
-.note:hover .note-btn-container{
-opacity: 1;
+.note:hover .note-btn-container {
+    opacity: 1;
 }
 
 .note-txt-container {

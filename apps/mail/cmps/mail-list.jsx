@@ -17,6 +17,7 @@ export function MailList({ mails, updateMail }) {
             <div>
                 {
                     mails.map(mail =>
+
                         <MailPreview key={mail.id} mail={mail} updateMail={updateMail} />
                     )
                 }

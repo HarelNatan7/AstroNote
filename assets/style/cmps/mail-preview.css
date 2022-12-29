@@ -6,6 +6,12 @@
     display: flex;
     justify-content: space-between;
 
+
+}
+
+.expanded-btn * {
+    color: var(--txtClr);
+    background-color: #36373d;
 }
 
 .main-expanded {
@@ -20,4 +26,8 @@
 
 .stared {
     color: gold;
+}
+
+.read {
+    color: var(--unreadTxtClr);
 }
