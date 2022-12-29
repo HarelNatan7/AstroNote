@@ -1,11 +1,13 @@
 * {
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: var(--txtClr);
+
 }
+
 
 body {
     margin: 0;
+    color: var(--txtClr);
 }
 
 h1,
@@ -50,7 +52,7 @@ button:hover {
 input {
     border-radius: 7px;
     border: 0;
-    background-color:#525356;
+    background-color: #525356;
     padding: 8px;
     margin: 3px 0;
-  }
+}

@@ -3,4 +3,5 @@
     width: 100%;
     overflow-y: scroll;
     background-color: var(--mainBgc);
+    color: var(--txtClr);
 }

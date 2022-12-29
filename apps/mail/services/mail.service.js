@@ -8,9 +8,10 @@ export const mailServices = {
     query,
     get,
     put,
+    getFilterCriteria
 }
 
-const EMAILS_KEY = 'emailsDB'
+const MAILS_KEY = 'mailsDB'
 const USER_KEY = 'userDB'
 
 const loggedinUser = {
@@ -23,11 +24,12 @@ storageService._save(USER_KEY, loggedinUser)
 
 
 function createEmails() {
-    let mails = utilService.loadFromStorage(EMAILS_KEY)
+    let mails = utilService.loadFromStorage(MAILS_KEY)
     if (!mails || !mails.length) {
         mails = [
             {
                 id: 'e101',
+                name: 'nana',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
@@ -40,6 +42,7 @@ function createEmails() {
             },
             {
                 id: 'e102',
+                name: 'lala',
                 subject: 'Miss mama mama you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
@@ -52,6 +55,7 @@ function createEmails() {
             },
             {
                 id: 'e103',
+                name: 'mamam',
                 subject: 'Miss lala lala you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
@@ -64,22 +68,53 @@ function createEmails() {
             },
         ]
     }
-    utilService.saveToStorage(EMAILS_KEY, mails)
+    utilService.saveToStorage(MAILS_KEY, mails)
 }
 
 
 function put(updatedMail) {
 
-    return storageService.put(EMAILS_KEY, updatedMail)
+    return storageService.put(MAILS_KEY, updatedMail)
 }
 
 function get(mailId) {
 
-    return storageService.get(EMAILS_KEY, mailId)
+    return storageService.get(MAILS_KEY, mailId)
 }
 
-function query() {
+function query(criteria = getFilterCriteria()) {
+    console.log('criteria', criteria);
 
-    return storageService.query(EMAILS_KEY)
+    return storageService.query(MAILS_KEY).then(mails => {
+        if (criteria.txt) {
+            const regex = new RegExp(criteria.txt, 'i')
+            mails = mails.filter(mail => {
 
+                // if (!regex.test(mail.name)) {
+                //     return 
+                // }
+                return regex.test(mail.subject)
+
+
+            })
+            //     || mails.filter(mail => regex.test(mail.subject)) ||
+            //     mails.filter(mail => regex.test(mail.body))
+            // console.log('mails', mails);
+
+        }
+        return mails
+    })
+
+}
+
+
+function getFilterCriteria() {
+    const criteria = {
+        status: '',
+        txt: '',
+        isRead: true,
+        isStared: true,
+        lables: ['important', 'romantic']
+    }
+    return criteria
 }

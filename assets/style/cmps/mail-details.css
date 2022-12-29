@@ -10,6 +10,8 @@
 }
 
 .btn-detail-container button {
+    color: var(--txtClr);
+    background-color: var(--mainBgc);
     margin-inline-end: 10px;
 
 }

@@ -4,6 +4,7 @@
     grid-template-columns: repeat(auto-fit, minmax(177px, 1fr));
     gap: 27px;
     margin: 0 2vw;
+
 }
 
 .note {
@@ -25,8 +26,8 @@
     opacity: 0;
 }
 
-.note:hover .note-btn-container{
-opacity: 1;
+.note:hover .note-btn-container {
+    opacity: 1;
 }
 
 .note button {
