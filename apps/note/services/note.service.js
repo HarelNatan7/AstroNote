@@ -31,7 +31,6 @@ function remove(noteID) {
 }
 
 function save(note) {
-    console.log('note:', note)
     if (note.id) {
         return storageService.put(NOTES_KEY, note)
     } else {
@@ -44,13 +43,14 @@ function post(newNote) {
 }
 
 function getEmptyNote() {
-    return  {
-            id: '',
-            type: 'note-txt',
-            isPinned: false,
-            info: {
-                txt: ''
-            }
+    return {
+        id: '',
+        type: 'txt-note',
+        isPinned: false,
+        info: {
+            txt: '',
+            todos: []
+        }
     }
 }
 
@@ -60,7 +60,7 @@ function _createNotes() {
         notes = [
             {
                 id: 'n101',
-                type: 'note-txt',
+                type: 'txt-note',
                 isPinned: false,
                 info: {
                     txt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sit sequi commodi inventore amet facilis vel accusamus.'
@@ -68,7 +68,7 @@ function _createNotes() {
             },
             {
                 id: 'n102',
-                type: 'note-txt',
+                type: 'txt-note',
                 isPinned: false,
                 info: {
                     txt: '    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, ut.'
@@ -76,7 +76,7 @@ function _createNotes() {
             },
             {
                 id: 'n103',
-                type: 'note-txt',
+                type: 'txt-note',
                 isPinned: false,
                 info: {
                     txt: '    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat vitae eligendi similique provident? Deserunt, modi.'

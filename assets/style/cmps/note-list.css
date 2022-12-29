@@ -1,7 +1,8 @@
 /* Note List */
 
 .notes-container {
-    grid-template-columns: repeat(auto-fit, minmax(177px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(297px, 1fr));
+    grid-template-rows: inherit;
     gap: 27px;
     margin: 0 2vw;
 }
@@ -13,7 +14,9 @@
     border: 1px solid #5f6368;
     box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.7);
     padding: 12px;
-    min-height: 7vh;
+    /* min-height: 7vh; */
+    height: fit-content;
+    word-wrap: break-word;
     cursor: pointer;
 }
 
@@ -27,6 +30,10 @@
 
 .note:hover .note-btn-container{
 opacity: 1;
+}
+
+.note-txt-container {
+    padding-bottom: 26px;
 }
 
 .note button {
