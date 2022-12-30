@@ -60,6 +60,7 @@ function getEmptyNote() {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
     if (!notes || !notes.length) {
+        console.log('notes:Are You?', notes)
         notes = [
             {
                 id: 'n101',
@@ -122,7 +123,7 @@ function _createNotes() {
                 style: {
                     backgroundColor: ''
                 }
-            }
+            },
         ]
         utilService.saveToStorage(NOTES_KEY, notes)
     }

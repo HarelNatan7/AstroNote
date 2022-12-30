@@ -10,7 +10,7 @@ export function NoteEdit() {
     const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
     const [noteType, setNoteType] = useState('txt-note')
     const navigate = useNavigate()
-    const { noteId } = useParams()
+    // const { noteId } = useParams()
     const addInput = useRef()
     const [notes, setNotes, isAddingNote, setIsAddingNote] = useOutletContext()
 
@@ -21,21 +21,21 @@ export function NoteEdit() {
 
     useEffect(() => {
         utilService.animateCSS(addInput.current, 'fadeInUp')
-        if (!noteId) return
-        loadNote()
+        console.log('notes2:', notes)
+        // if (!noteId) return
+        // loadNote()
     }, [])
 
-    function loadNote() {
-        noteService.get(noteId)
-            .then((note) => setNoteToEdit(note))
-            .catch(err => {
-                console.log('Had issues in note details', err)
-                navigate('/note')
-            })
-    }
+    // function loadNote() {
+    //     noteService.get(noteId)
+    //         .then((note) => setNoteToEdit(note))
+    //         .catch(err => {
+    //             console.log('Had issues in note details', err)
+    //             navigate('/note')
+    //         })
+    // }
 
     function onSaveNote() {
-        // ev.preventDefault()
         console.log('noteToEdit:', noteToEdit)
         noteService.save(noteToEdit)
             .then(() => {
@@ -56,19 +56,22 @@ export function NoteEdit() {
             if (field === 'title') prevNote.info.title = value
             if (field === 'txt') prevNote.info.txt = value
             if (field === 'url') prevNote.info.url = value
-            if (field === 'todos') {
-                value = value.trim()
-                console.log('value:', value)
-                value.split(',').map(todo => prevNote.info.todos.push(todo))
-                console.log('prevNote.info.todos:', prevNote.info.todos)
-            }
-            // return { ...prevNote, [field]: value }
             return prevNote
         })
     }
 
-    function handleKeyPress(event) {
-        if (event.key === 'Enter') onSaveNote()
+    function handleKeyPress(ev) {
+        let { value, name: field } = ev.target
+        if (ev.key === 'Enter') {
+            if (field === 'todos') {
+                value = value.trim()
+                setNoteToEdit(prevNote => {
+                    value.split(',').map(todo => prevNote.info.todos.push({txt: todo, isDone: false}))
+                    return prevNote
+                })
+            }
+            onSaveNote()
+        }
     }
 
     return <div className="add-note-container flex" ref={addInput}>
@@ -140,9 +143,7 @@ function ListInput({ handleChange, handleKeyPress }) {
         className="add-input"
         name="todos"
         placeholder="Write Todos Seperated By Commas..."
-        onKeyDown={() => {
-            handleChange(event)
-            handleKeyPress(event)
-        }}
+        onChange={handleChange}
+        onKeyDown={handleKeyPress}
     />
 }

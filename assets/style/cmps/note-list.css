@@ -2,7 +2,7 @@
 
 .notes-container {
     grid-template-columns: repeat(auto-fit, minmax(297px, 1fr));
-    grid-template-rows: inherit;
+    /* grid-template-rows: auto-fit; */
     gap: 27px;
     margin: 0 2vw;
 

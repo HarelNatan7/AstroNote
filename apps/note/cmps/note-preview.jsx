@@ -14,11 +14,15 @@ export function NotePreview({ note, onRemoveNote }) {
         noteService.save(note)
     }, [bgColor])
 
-
     function onEditTxt() {
         // utilService.animateCSS(noteText.current, 'headShake')
         let newTxt = noteText.current.textContent
         note.info.txt = newTxt
+        noteService.save(note)
+    }
+
+    function onToggleIsDone(idx) {
+        note.info.todos[idx].isDone = !note.info.todos[idx].isDone
         noteService.save(note)
     }
 
@@ -30,14 +34,14 @@ export function NotePreview({ note, onRemoveNote }) {
 
     return <li
         className={'note ' + note.style.backgroundColor}
-        style={{ backgroundColor: bgColor }}>
-        {note.info.title && <div className="note-title-container">{note.info.title}</div>}
+        style={{ backgroundColor: bgColor.length ? bgColor : note.style.backgroundColor }}>
+        {note.info.title && <h1 className="note-title-container">{note.info.title}</h1>}
         <div className="note-content-container"
             // contentEditable
             ref={noteText}
             style={note.info.title && { paddingTop: 15 }}
             onInput={onEditTxt}>
-            <DynNote note={note}
+            <DynNote note={note} onToggleIsDone={onToggleIsDone}
             />
         </div>
         <div className="note-btn-container">
@@ -77,7 +81,7 @@ export function NotePreview({ note, onRemoveNote }) {
     </li>
 }
 
-function DynNote({ note }) {
+function DynNote({ note, onToggleIsDone }) {
     switch (note.type) {
         case 'txt-note':
             return <TxtNote {...note} />
@@ -86,23 +90,35 @@ function DynNote({ note }) {
         case 'video-note':
             return <VideoNote {...note} />
         case 'list-note':
-            return <ListNote {...note} />
+            return <ListNote note={note} onToggleIsDone={onToggleIsDone} />
     }
 }
 
 function TxtNote({ info }) {
-    return <Fragment>{info.txt}</Fragment>
+    return <h4 contentEditable >{info.txt}</h4>
 }
 function ImgNote({ info }) {
     return <img src={info.url} />
 }
 function VideoNote({ info }) {
-    return <iframe src={info.url} width="277" height="177" frameborder="0"></iframe>
+    return <iframe src={info.url} width="100%" height="100%" frameBorder="0"></iframe>
 }
-function ListNote({ info }) {
-    return <ul>
+function ListNote({ note, onToggleIsDone }) {
+
+    const [toggleIsDone, setToggleIsDone] = useState([
+        note.info.todos.map(todo => todo.isDone)
+    ])
+
+    return <ul className="todo-list">
         {
-            info.todos.map(todo => <li>{todo}</li>)
+            note.info.todos.map((todo, idx) => <li
+                key={idx}
+                className={todo.isDone ? 'done' : ''}
+                onClick={() => {
+                    setToggleIsDone({ ...toggleIsDone, [idx]: !toggleIsDone[idx] })
+                    onToggleIsDone(idx)
+                }}
+            >{todo.txt}</li>)
         }
     </ul>
 }

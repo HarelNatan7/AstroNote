@@ -1,3 +1,13 @@
+
+@font-face {
+    font-family: fira-regular;
+    src: url(../../../assets/fonts/FiraSansExtraCondensed-Regular.ttf);
+}
+@font-face {
+    font-family: fira-medium;
+    src: url(../../../assets/fonts/FiraSansExtraCondensed-Medium.ttf);
+}
+
 @font-face {
     font-family: fa-brands;
     src: url(/assets/font-awesome/fa-brands-400.ttf);

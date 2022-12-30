@@ -3,10 +3,8 @@ const { Outlet, useNavigate } = ReactRouterDOM
 
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
-// import { NoteEdit } from '../cmps/note-edit.jsx'
 import { UserMsg } from '../../../cmps/user-msg.jsx'
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
-
 
 export function NoteIndex() {
 
@@ -49,7 +47,9 @@ export function NoteIndex() {
     }
 
     return <section className="note-app-container">
+
         {userMsg && <UserMsg msg={userMsg} />}
+
         <div className="inputs-container flex column">
             <input type="text" className="search-input" placeholder="Search Note" />
             {!isAddingNote && <input type="text" className="first-add-input" placeholder="Take A Note..."
