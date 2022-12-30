@@ -11,8 +11,8 @@
     top: 33%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 9rem;
     font-family: fira-medium;
+    width: 75%;
 }
 
 .home span {

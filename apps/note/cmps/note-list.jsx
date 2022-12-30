@@ -1,13 +1,19 @@
 const { useNavigate, useParams, Link } = ReactRouterDOM
-const { useRef } = React
+const { useRef, Fragment } = React
 
 import { NotePreview } from "./note-preview.jsx"
 
-export function NoteList({ notes, onRemoveNote }) {
-    // const navigate = useNavigate()
+export function NoteList({ notes, onRemoveNote, onPinNote }) {
 
-    return <ul className="notes-container grid clean-list"  >
-        {notes.map(note => <NotePreview note={note} key={note.id} onRemoveNote={onRemoveNote} />)}
-    </ul>
+    return <Fragment>
+        <h1>Others</h1>
+        <ul className="notes-container grid clean-list"  >
+            {notes = notes.filter(note => !note.isPinned)
+                .map(note => <NotePreview
+                    note={note} key={note.id}
+                    onRemoveNote={onRemoveNote}
+                    onPinNote={onPinNote} />)}
+        </ul>
+    </Fragment>
 }
 

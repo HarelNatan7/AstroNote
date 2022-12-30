@@ -15,7 +15,7 @@ export function NoteIndex() {
     const [isLoading, setIsLoading] = useState(false)
     const [isAddingNote, setIsAddingNote] = useState(false)
     const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
-   
+
 
     useEffect(() => {
         setIsLoading(true)
@@ -49,6 +49,19 @@ export function NoteIndex() {
             })
     }
 
+    function onPinNote(noteId) {
+        noteService.get(noteId).then(note => {
+            note.isPinned = !note.isPinned
+            console.log('A');
+            console.log('notesA:', notes)
+            noteService.save(note).then(() => {
+                loadNotes()
+                if (note.isPinned) showSuccessMsg('Note Pinned')
+                else  showSuccessMsg('Note Unpinned')
+            })
+        })
+    }
+
     function navigateToEdit() {
         if (isAddingNote) navigate('/note/edit')
         else navigate('/note')
@@ -57,25 +70,23 @@ export function NoteIndex() {
     const loader = <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 
     return <Fragment>
-
-     <section className="note-app-container">
-
+        <section className="note-app-container">
             {isLoading && <section>{loader}</section>}
-        {userMsg && <UserMsg msg={userMsg} />}
+            {userMsg && <UserMsg msg={userMsg} />}
 
-        <div className="inputs-container flex column">
-            <NoteFilter onSetFilter={onSetFilter}/>
-            {!isAddingNote && <input type="text" className="first-add-input" placeholder="Take A Note..."
-                onClick={() => { setIsAddingNote(!isAddingNote) }} />}
-            <div className="nested-route">
-            <Outlet context={[notes, setNotes, isAddingNote, setIsAddingNote]} />
+            <div className="inputs-container flex column">
+                <NoteFilter onSetFilter={onSetFilter} />
+                {!isAddingNote && <input type="text" className="first-add-input" placeholder="Take A Note..."
+                    onClick={() => { setIsAddingNote(!isAddingNote) }} />}
+                <div className="nested-route">
+                    <Outlet context={[notes, setNotes, isAddingNote, setIsAddingNote]} />
+                </div>
+                <div></div>
             </div>
-            <div></div>
-        </div>
-        <PinnedNote notes={notes} onRemoveNote={onRemoveNote} />
-        <NoteList notes={notes} onRemoveNote={onRemoveNote} />
-
-
-    </section>
-                </Fragment>
+            <div className="main-notes-container">
+            <PinnedNote notes={notes} onRemoveNote={onRemoveNote} onPinNote={onPinNote} />
+            <NoteList notes={notes} onRemoveNote={onRemoveNote} onPinNote={onPinNote} />
+            </div>
+        </section>
+    </Fragment>
 }

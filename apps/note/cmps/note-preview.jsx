@@ -3,7 +3,7 @@ const { useState, useRef, useEffect, Fragment } = React
 import { noteService } from "../services/note.service.js"
 import { utilService } from "../../../services/util.service.js"
 
-export function NotePreview({ note, onRemoveNote }) {
+export function NotePreview({ note, onRemoveNote, onPinNote }) {
 
     const [bgColor, setBgColor] = useState('')
     const [colorPicker, setColorPicker] = useState(0)
@@ -26,12 +26,7 @@ export function NotePreview({ note, onRemoveNote }) {
         noteService.save(note)
     }
 
-    function onPinNote(noteId) {
-        console.log('noteBefore:', note)
-        note.isPinned = !note.isPinned
-        console.log('noteAfter:', note)
-        noteService.save(note)
-        }
+    
 
     function onBgColorSelect() {
         // setBgColor('red')

@@ -72,7 +72,6 @@ function getEmptyNote() {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
     if (!notes || !notes.length) {
-        console.log('notes:Are You?', notes)
         notes = [
             {
                 id: 'n101',
@@ -101,7 +100,7 @@ function _createNotes() {
             {
                 id: 'n103',
                 type: 'txt-note',
-                isPinned: false,
+                isPinned: true,
                 info: {
                     txt: '“When I get sad, I stop being sad and be awesome instead.”',
                     todos: []
@@ -113,6 +112,7 @@ function _createNotes() {
             {
                 id: 'n104',
                 type: 'img-note',
+                isPinned: false,
                 info: {
                     url: 'https://miro.medium.com/max/800/0*0ZgS_Z1-5VBdbN3u.png',
                     title: 'The Best Framework'
@@ -124,6 +124,7 @@ function _createNotes() {
             {
                 id: 'n105',
                 type: 'video-note',
+                isPinned: false,
                 info: {
                     title: 'The Best Player In The World',
                     url: 'https://www.youtube.com/embed/Rh6R4aMm_PA',

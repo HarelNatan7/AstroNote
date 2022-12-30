@@ -1,7 +1,17 @@
 /* Note List */
 
+.main-notes-container {
+    margin: 0 4vw;
+}
+
+.pinned-notes-container {
+    grid-template-columns: repeat(auto-fit, minmax(177px, 1fr));
+    gap: 27px;
+    margin: 0 2vw 15px;
+}
+
 .notes-container {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(177px, 1fr));
     gap: 27px;
     margin: 0 2vw;
 }
@@ -14,10 +24,14 @@
     padding: 12px;
     /* min-height: 7vh; */
     height: fit-content;
-    width: fit-content;
     word-wrap: break-word;
     cursor: pointer;
     transition: .6s;
+}
+
+.note img {
+    width: 100%;
+    max-width: 300px;
 }
 
 .note-btn-container {
@@ -49,7 +63,7 @@
     width: 17px;
     border-radius: 50%;
     display: inline-block;
-    box-shadow:  1px 4px 5px rgba(92, 92, 89, 0.607);
+    box-shadow: 1px 4px 5px rgba(92, 92, 89, 0.607);
     transition: .5s;
 }
 
