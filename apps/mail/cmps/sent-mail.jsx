@@ -1,24 +1,45 @@
-const { useState } = React
+const { useState, useEffect } = React
 
 
 
-export function SentMail({ updatedSentShown, sentMail, getSentedMail }) {
+export function SentMail({ updatedSentShown, sentMail, getSentedMail, filterCrit, onSetCriteria }) {
     const [updatedSentMail, setUpdatedSentMail] = useState(sentMail)
+    const [updateCrit, setUpdateCrit] = useState(filterCrit)
+    const [draftMail, setDraftMail] = useState(updatedSentMail)
+
 
     function handleChange({ target }) {
         let { value, name: field } = target
-        console.log('value', value);
-        console.log('field', field);
+
         setUpdatedSentMail((prevMaill) => {
             console.log(prevMaill);
             return { ...prevMaill, [field]: value }
         })
+        setDraftMail(prevMail => {
+            prevMail.isDraft = true
+            return { ...prevMail, [field]: value }
+        })
+        if (updateCrit.status !== 'inbox') {
+            setUpdateCrit(prevCrit => {
+                console.log(prevCrit);
+                return { ...prevCrit, status: 'inbox' }
+            })
+        }
     }
     console.log(updatedSentMail);
     function onSubmintSentMail(ev) {
         ev.preventDefault()
         getSentedMail(updatedSentMail)
-        // updatedSentShown(false)
+
+        console.log(updateCrit, 'updateCrit');
+        onSetCriteria(updateCrit)
+    }
+
+
+    function onClickDraft() {
+        getSentedMail(draftMail)
+        updatedSentShown(false)
+        onSetCriteria(updateCrit)
     }
 
     /// need to support טיוטות
@@ -27,7 +48,7 @@ export function SentMail({ updatedSentShown, sentMail, getSentedMail }) {
         <form className="sent-mail" onSubmit={onSubmintSentMail}>
             <div className="sent-message">
                 <span>New Message</span>
-                <button className="fa-solid fa-xmark" onClick={() => updatedSentShown(false)}></button>
+                <button className="fa-solid fa-xmark" onClick={() => onClickDraft()}></button>
             </div>
             <div className="sent-emailTo">
                 <label htmlFor="email"></label>
