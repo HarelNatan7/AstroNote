@@ -25,10 +25,11 @@ export function MailFilter({ filterCrit, onSetCriteria }) {
     return (
         <section className="mail-filter">
             <form onSubmit={onSubmitFilterForm}>
-
+                {/* <select className="fa-solid fa-calendar-days" name="" id="">
+                    <option value="january">january</option>
+                </select> */}
                 <input ref={formInput} onChange={handleChange} type="text" placeholder="Search in mail" name="txt" />
-                <button className="fa-solid fa-magnifying-glass btn-search"></button>
-
+                <button type="submit" className="fa-solid fa-magnifying-glass btn-search"></button>
 
             </form>
         </section>
