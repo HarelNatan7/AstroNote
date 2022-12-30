@@ -40,6 +40,9 @@ export function SideBarFilter({ updatedSentShown, filterCrit, onSetCriteria, unR
                 <div className="sent-container" onClick={() => onClickFilter('sent')}>
                     <div className="sent"></div>  <button className="fa-solid fa-paper-plane"></button>
                 </div>
+                <div className="draft-container" onClick={() => onClickFilter('draft')}>
+                    <div className="draft"></div>  <button className="fa-regular fa-file-lines"></button>
+                </div>
 
             </div>
 

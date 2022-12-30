@@ -11,6 +11,7 @@ export function MailIndex() {
     const [filterCrit, setFilterCrit] = useState(mailServices.getFilterCriteria())
     const [isSentShow, setIsSentShow] = useState(false)
     const [unReadLength, setUnreadLength] = useState(null)
+    const [draftMail, setdraftMail] = useState(null)
     const sentMail = mailServices.getDefaultSentMail()
     const loggedUser = mailServices.getLoggedUser()
 
@@ -85,10 +86,7 @@ export function MailIndex() {
 
     function loadEmails() {
         mailServices.query(filterCrit).then(mails => {
-            // console.log('inQUERY', filterCrit);
             setEmails(mails)
-
-
         })
     }
 
@@ -110,17 +108,24 @@ export function MailIndex() {
         })
     }
 
-
+    function getDraftMail(mail) {
+        setdraftMail(mail)
+    }
+    // console.log(draftMail, 'draftMail');
     return (
         <div>
             <MailFilter filterCrit={filterCrit} onSetCriteria={onSetCriteria} />
-            <SideBarFilter unReadLength={unReadLength} updatedSentShown={updatedSentShown} filterCrit={filterCrit} onSetCriteria={onSetCriteria} />
+            <SideBarFilter unReadLength={unReadLength}
+                updatedSentShown={updatedSentShown}
+                filterCrit={filterCrit} onSetCriteria={onSetCriteria} />
             <MailList mails={mails} updateMail={updateMail}
                 loggedUser={loggedUser}
                 filterCrit={filterCrit}
+                getDraftMail={getDraftMail}
                 removeMailFromTrash={removeMailFromTrash} />
             {isSentShow && <SentMail updatedSentShown={updatedSentShown}
-                sentMail={sentMail} getSentedMail={getSentedMail} />}
+                sentMail={sentMail} getSentedMail={getSentedMail}
+                filterCrit={filterCrit} onSetCriteria={onSetCriteria} />}
         </div>
     )
 

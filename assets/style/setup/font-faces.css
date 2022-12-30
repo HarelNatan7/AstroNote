@@ -170,3 +170,8 @@
 
     content: '\f829';
 }
+
+.fa-file-lines:before {
+
+    content: '\f15c';
+}

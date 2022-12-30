@@ -145,7 +145,7 @@ function query(criteria = getFilterCriteria()) {
         if (criteria.status === 'sent' && !criteria.txt) {
             const regex = new RegExp(criteria.txt, 'i')
             return mails.filter((mail) => {
-                if (mail.from === loggedinUser.mail) {
+                if (mail.from === loggedinUser.mail && !mail.isDraft) {
                     return mail
                 }
             })
@@ -167,6 +167,9 @@ function query(criteria = getFilterCriteria()) {
             console.log('im in trash');
 
             return mails.filter(mail => mail.isTrash === criteria.isTrash)
+        }
+        if (criteria.status === 'draft') {
+            return mails.filter(mail => mail.isDraft === criteria.isDraft)
         }
 
         if (criteria.txt) {
@@ -218,6 +221,7 @@ function getFilterCriteria() {
         isRead: true,
         isStared: true,
         isTrash: false,
+        isDraft: true,
         lables: ['important', 'romantic']
     }
     return criteria

@@ -3,11 +3,8 @@ import { PreviewExpanded } from "./preview-expanded.jsx"
 const { useState, useEffect, Fragment, useRef } = React
 
 
-export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMailFromTrash }) {
+export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMailFromTrash, getDraftMail }) {
     const [isExpanded, setIsExpanded] = useState(false)
-
-
-
 
     function onOpenMail(ev) {
         ev.stopPropagation()
@@ -50,6 +47,13 @@ export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMa
         if (mail.isRead) return 'read'
         else return ''
     }
+    function onClickMail() {
+        console.log(mail);
+        if (mail.isDraft) {
+            getDraftMail(mail)
+        }
+        setIsExpanded(!isExpanded)
+    }
 
     if (!mail) return <h1>loading...</h1>
     return (
@@ -64,10 +68,8 @@ export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMa
                     {filterCrit.isTrash && <button onClick={onUnTrash} className={`fa-solid fa-trash-arrow-up`}  ></button>}
 
                 </div>
-                <div className={`mail-list-details ${isMailRead()}`} onClick={() => {
-                    setIsExpanded(!isExpanded)
-                }}>
-                    <span>{(mail.name === loggedUser.fullname) ? 'Me' : mail.name}</span>
+                <div className={`mail-list-details ${isMailRead()}`} onClick={() => onClickMail()}>
+                    <span className="from">{(mail.name === loggedUser.fullname) ? 'Me' : mail.name}</span>
                     <span className="mail-subject">{mail.subject}</span>
                     <div className="mail-body">{mail.body}</div>
                     <span>{new Date(mail.sentAt).toLocaleString('default', {

@@ -2,7 +2,7 @@ const { Link, useNavigate } = ReactRouterDOM
 const { useState, useEffect } = React
 
 import { MailPreview } from "./mail-preview.jsx";
-export function MailList({ mails, updateMail, loggedUser, filterCrit, removeMailFromTrash }) {
+export function MailList({ mails, updateMail, loggedUser, filterCrit, removeMailFromTrash, getDraftMail }) {
     // const [clickedMailId, setClickedMailId] = useState('')
     const navigate = useNavigate()
 
@@ -17,12 +17,12 @@ export function MailList({ mails, updateMail, loggedUser, filterCrit, removeMail
             <div>
                 {
                     mails.map(mail =>
-
                         <MailPreview key={mail.id} mail={mail}
                             loggedUser={loggedUser}
                             updateMail={updateMail}
                             filterCrit={filterCrit}
-                            removeMailFromTrash={removeMailFromTrash} />
+                            removeMailFromTrash={removeMailFromTrash}
+                            getDraftMail={getDraftMail} />
                     )
                 }
             </div>
