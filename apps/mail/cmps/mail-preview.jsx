@@ -49,23 +49,20 @@ export function MailPreview({ mail, updateMail }) {
                     <input className="input-list" onClick={onCheckedMail} type="checkbox" id="filterChecked" name="filterChecked" />
                     <button onClick={onUnreadMail} className={`fa-regular ${!mail.isRead ? 'fa-envelope' : 'fa-envelope-open'}`}></button>
                     <button onClick={onStarMail} className={`fa-regular fa-star ${mail.isStared ? 'stared' : ''}`}  ></button>
-
+                    <button onClick={onTrashMail} className={!isExpanded ? `fa-solid fa-delete ` : ''} ></button>
 
                 </div>
                 <div className={`mail-list-details ${isMailRead()}`} onClick={() => {
                     setIsExpanded(!isExpanded)
                 }}>
                     <span>{mail.name}</span>
-                    <span>{mail.subject}</span>
-                    <span>{mail.body}</span>
+                    <span className="mail-subject">{mail.subject}</span>
+                    <div className="mail-body">{mail.body}</div>
                     <span>{new Date(mail.sentAt).toLocaleString('default', {
                         month: 'long',
                     })}</span>
                 </div>
 
-                <div className="btn-list-hidden">
-                    <button onClick={onTrashMail} className={!isExpanded ? `fa-solid fa-delete ` : ''} ></button>
-                </div>
             </div>
             {isExpanded && !mail.isTrash && < PreviewExpanded mail={mail} updateMail={updateMail} setIsExpanded={setIsExpanded} />}
         </Fragment>

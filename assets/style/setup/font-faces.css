@@ -140,3 +140,13 @@
 
     content: '\f01c';
 }
+
+.fa-readme:before {
+
+    content: '\f4d5';
+}
+
+.fa-envelope-circle-check:before {
+
+    content: '\e4e8';
+}
