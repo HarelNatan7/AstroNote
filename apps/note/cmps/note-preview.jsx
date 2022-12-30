@@ -26,6 +26,13 @@ export function NotePreview({ note, onRemoveNote }) {
         noteService.save(note)
     }
 
+    function onPinNote(noteId) {
+        console.log('noteBefore:', note)
+        note.isPinned = !note.isPinned
+        console.log('noteAfter:', note)
+        noteService.save(note)
+        }
+
     function onBgColorSelect() {
         // setBgColor('red')
         if (!colorPicker) setColorPicker(1)
@@ -45,7 +52,7 @@ export function NotePreview({ note, onRemoveNote }) {
             />
         </div>
         <div className="note-btn-container">
-            <button className="fa-solid fa-pin"></button>
+            <button className="fa-solid fa-pin" onClick={() => onPinNote(note.id)}></button>
             <button className="fa-solid fa-color" onClick={() => onBgColorSelect()}></button>
             <button className="fa-solid fa-edit"></button>
             <button className="fa-solid fa-mail"></button>

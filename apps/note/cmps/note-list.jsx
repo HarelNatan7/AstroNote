@@ -10,3 +10,4 @@ export function NoteList({ notes, onRemoveNote }) {
         {notes.map(note => <NotePreview note={note} key={note.id} onRemoveNote={onRemoveNote} />)}
     </ul>
 }
+

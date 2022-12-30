@@ -2,6 +2,7 @@ const { useState, useEffect, Fragment } = React
 const { Outlet, useNavigate } = ReactRouterDOM
 
 import { noteService } from '../services/note.service.js'
+import { PinnedNote } from '../cmps/note-pinned.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
 import { NoteFilter } from '../cmps/note-filter.jsx'
 import { UserMsg } from '../../../cmps/user-msg.jsx'
@@ -71,6 +72,7 @@ export function NoteIndex() {
             </div>
             <div></div>
         </div>
+        <PinnedNote notes={notes} onRemoveNote={onRemoveNote} />
         <NoteList notes={notes} onRemoveNote={onRemoveNote} />
 
 
