@@ -1,11 +1,9 @@
 /* Note List */
 
 .notes-container {
-    grid-template-columns: repeat(auto-fit, minmax(297px, 1fr));
-    /* grid-template-rows: auto-fit; */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 27px;
     margin: 0 2vw;
-
 }
 
 .note {
@@ -16,6 +14,7 @@
     padding: 12px;
     /* min-height: 7vh; */
     height: fit-content;
+    width: fit-content;
     word-wrap: break-word;
     cursor: pointer;
     transition: .6s;

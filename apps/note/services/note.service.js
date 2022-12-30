@@ -11,14 +11,26 @@ export const noteService = {
     remove,
     save,
     getEmptyNote,
-    // getDefaultFilter,
+    getDefaultFilter,
 }
 
-function query() {
+function query(filterBy = getDefaultFilter()) {
     return storageService.query(NOTES_KEY)
         .then(notes => {
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                notes = notes.filter(note => regex.test(note.info.title))
+            }
+            if (filterBy.type) {
+                const regex = new RegExp(filterBy.type, 'i')
+                notes = notes.filter(note => regex.test(note.type))
+            }
             return notes
         })
+}
+
+function getDefaultFilter() {
+    return { txt: '', type: '' }
 }
 
 function get(noteId) {

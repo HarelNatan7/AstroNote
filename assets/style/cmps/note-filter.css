@@ -1,0 +1,14 @@
+.select-container {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+#type {
+    background-color: #525356;
+    border: none;
+    color: #fff;
+    padding: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+}

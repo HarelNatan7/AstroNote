@@ -1,8 +1,9 @@
-const { useState, useEffect } = React
+const { useState, useEffect, Fragment } = React
 const { Outlet, useNavigate } = ReactRouterDOM
 
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
+import { NoteFilter } from '../cmps/note-filter.jsx'
 import { UserMsg } from '../../../cmps/user-msg.jsx'
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 
@@ -12,21 +13,27 @@ export function NoteIndex() {
     const [notes, setNotes] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [isAddingNote, setIsAddingNote] = useState(false)
+    const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
+   
 
     useEffect(() => {
         setIsLoading(true)
         loadNotes()
-    }, [])
+    }, [filterBy])
 
     useEffect(() => {
         navigateToEdit()
     }, [isAddingNote])
 
     function loadNotes() {
-        noteService.query().then(notesToUpdate => {
+        noteService.query(filterBy).then(notesToUpdate => {
             setNotes(notesToUpdate)
             setIsLoading(false)
         })
+    }
+
+    function onSetFilter(filterByFromFilter) {
+        setFilterBy(filterByFromFilter)
     }
 
     function onRemoveNote(ev, noteId) {
@@ -46,12 +53,17 @@ export function NoteIndex() {
         else navigate('/note')
     }
 
-    return <section className="note-app-container">
+    const loader = <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 
+    return <Fragment>
+
+     <section className="note-app-container">
+
+            {isLoading && <section>{loader}</section>}
         {userMsg && <UserMsg msg={userMsg} />}
 
         <div className="inputs-container flex column">
-            <input type="text" className="search-input" placeholder="Search Note" />
+            <NoteFilter onSetFilter={onSetFilter}/>
             {!isAddingNote && <input type="text" className="first-add-input" placeholder="Take A Note..."
                 onClick={() => { setIsAddingNote(!isAddingNote) }} />}
             <div className="nested-route">
@@ -60,8 +72,8 @@ export function NoteIndex() {
             <div></div>
         </div>
         <NoteList notes={notes} onRemoveNote={onRemoveNote} />
-        {isLoading && <div>Loading..</div>}
 
 
     </section>
+                </Fragment>
 }
