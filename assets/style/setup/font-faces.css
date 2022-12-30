@@ -1,8 +1,8 @@
-
 @font-face {
     font-family: fira-regular;
     src: url(../../../assets/fonts/FiraSansExtraCondensed-Regular.ttf);
 }
+
 @font-face {
     font-family: fira-medium;
     src: url(../../../assets/fonts/FiraSansExtraCondensed-Medium.ttf);
@@ -149,4 +149,24 @@
 .fa-envelope-circle-check:before {
 
     content: '\e4e8';
+}
+
+.fa-paper-plane:before {
+
+    content: '\f1d8';
+}
+
+.fa-calendar-days:before {
+
+    content: '\f073';
+}
+
+.fa-recycle:before {
+
+    content: '\f1b8';
+}
+
+.fa-trash-arrow-up:before {
+
+    content: '\f829';
 }

@@ -33,10 +33,36 @@
     transition: 0.5s;
 }
 
+
+
 .side-bar-filter:hover .compose::before {
     font-size: 1rem;
     content: "compose";
     text-transform: lowercase;
+    transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+}
+
+.side-bar-filter:hover .unreadMail::before {
+    font-size: 1rem;
+    content: "Unread ";
+    text-transform: lowercase;
+    transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+}
+
+
+
+.inbox {
+    transition: 0.5s;
+}
+
+.side-bar-filter:hover .inbox::before {
+    font-size: 1rem;
+    content: "Incoming Mail ";
+    text-transform: lowercase;
+    transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
 }
 
 .compose-container {
@@ -49,8 +75,13 @@
 
 .inbox-container {
     display: flex;
+    align-items: center;
 }
 
-.compose-container *:hover {
-    /* color: antiquewhite;/ */
+.compose-container *:hover {}
+
+.unreadMail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

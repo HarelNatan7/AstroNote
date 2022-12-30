@@ -11,6 +11,7 @@ import { UserMsg } from "./cmps/user-msg.jsx"
 import { NoteEdit } from "./apps/note/cmps/note-edit.jsx"
 
 
+
 export function App() {
     return <section className="app-container flex">
         <Router >
@@ -25,6 +26,7 @@ export function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/mail" element={<MailIndex />} />
                     <Route path="/mail/:mailId" element={<MailDetails />} />
+
                     <Route path="/note" element={<NoteIndex />} >
                         <Route path="/note/edit" element={<NoteEdit />} />
                         <Route path="/note/edit/:noteId" element={<NoteEdit />} />

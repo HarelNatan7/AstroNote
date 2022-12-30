@@ -11,6 +11,9 @@ export const mailServices = {
     post,
     getFilterCriteria,
     getDefaultSentMail,
+    getLoggedUser,
+    getUnreadMailCount,
+    remove
 }
 
 const MAILS_KEY = 'mailsDB'
@@ -139,6 +142,14 @@ function query(criteria = getFilterCriteria()) {
             })
         }
 
+        if (criteria.status === 'sent' && !criteria.txt) {
+            const regex = new RegExp(criteria.txt, 'i')
+            return mails.filter((mail) => {
+                if (mail.from === loggedinUser.mail) {
+                    return mail
+                }
+            })
+        }
         if (criteria.status === 'star' && criteria.isStared) {
             return mails.filter(mail => mail.isStared === criteria.isStared)
         }
@@ -152,11 +163,11 @@ function query(criteria = getFilterCriteria()) {
 
             return mails.filter(mail => mail.isRead !== criteria.isRead)
         }
-        // if (criteria.status === 'trash' && criteria.isTrash) {
-        //     console.log('im in trash');
+        if (criteria.status === 'trash' && criteria.isTrash) {
+            console.log('im in trash');
 
-        //     return mails.filter(mail => mail.isTrash === criteria.isTrash)
-        // }
+            return mails.filter(mail => mail.isTrash === criteria.isTrash)
+        }
 
         if (criteria.txt) {
             const regex = new RegExp(criteria.txt, 'i')
@@ -173,6 +184,10 @@ function query(criteria = getFilterCriteria()) {
         return mails
     })
 
+}
+
+function remove(mailId) {
+    return storageService.remove(MAILS_KEY, mailId)
 }
 
 function post(mail) {
@@ -202,8 +217,19 @@ function getFilterCriteria() {
         txt: '',
         isRead: true,
         isStared: true,
-        isTrash: true,
+        isTrash: false,
         lables: ['important', 'romantic']
     }
     return criteria
+}
+
+function getLoggedUser() {
+    return loggedinUser
+}
+
+function getUnreadMailCount() {
+    return storageService.query(MAILS_KEY).then(mails => {
+        const mailLength = mails.filter(mail => mail.isRead === false && mail.name !== loggedinUser.fullname)
+        return mailLength.length
+    })
 }

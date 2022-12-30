@@ -1,6 +1,5 @@
 const { useState, useEffect } = React
 
-import { storageService } from "../../../services/async-storage.service.js"
 import { MailFilter } from "../cmps/mail-filter.jsx"
 import { MailList } from "../cmps/mail-list.jsx"
 import { SentMail } from "../cmps/sent-mail.jsx"
@@ -11,12 +10,19 @@ export function MailIndex() {
     const [mails, setEmails] = useState([])
     const [filterCrit, setFilterCrit] = useState(mailServices.getFilterCriteria())
     const [isSentShow, setIsSentShow] = useState(false)
-    const [sentMail, setSentMail] = useState(mailServices.getDefaultSentMail())
+    const [unReadLength, setUnreadLength] = useState(null)
+    const sentMail = mailServices.getDefaultSentMail()
+    const loggedUser = mailServices.getLoggedUser()
 
 
     useEffect(() => {
+
         loadEmails()
+        loadUnreadLength()
     }, [filterCrit])
+
+
+
 
     function updateMail(mailToUpdate, field) {
         console.log('mail with field', mailToUpdate, field);
@@ -33,14 +39,26 @@ export function MailIndex() {
             mailToUpdate.isChecked = !mailToUpdate.isChecked
         }
         if (field === 'mailTrash') {
+            console.log(filterCrit);
             mailToUpdate.isTrash = true
             mailToUpdate.dateRemoved = Date.now()
+        }
+        if (field === 'trashToMail') {
+            mailToUpdate.isTrash = false
+            console.log(mailToUpdate);
         }
         mailServices.put(mailToUpdate).then((updatedMail) => {
             setEmails(() => {
                 return mails.map((mail) => {
                     if (mail.id === updatedMail.id) {
+                        console.log('updating');
                         mail = updatedMail
+
+                    }
+                    if (filterCrit.status === 'trash') {
+                        setFilterCrit(prevCrit => {
+                            return { ...prevCrit, status: 'inbox', isTrash: false }
+                        })
                     }
                     return mail
                 })
@@ -48,13 +66,37 @@ export function MailIndex() {
         })
     }
 
+    console.log(mails);
+
+    function removeMailFromTrash(mailId) {
+
+        mailServices.remove(mailId).then(() => {
+            loadEmails()
+        })
+
+    }
+
+    function loadUnreadLength() {
+        mailServices.getUnreadMailCount(unReadLength).then(length => {
+            setUnreadLength(length)
+        })
+
+    }
+
     function loadEmails() {
         mailServices.query(filterCrit).then(mails => {
-            console.log('inQUERY', filterCrit);
+            // console.log('inQUERY', filterCrit);
             setEmails(mails)
+
+
         })
     }
+
     function onSetCriteria(criteriaToUpdate) {
+        console.log('criteriaToUpdate', criteriaToUpdate);
+        if (criteriaToUpdate.status === 'trash') {
+            criteriaToUpdate.isTrash = true
+        } else criteriaToUpdate.isTrash = false
         setFilterCrit(criteriaToUpdate)
     }
 
@@ -68,12 +110,15 @@ export function MailIndex() {
         })
     }
 
-    // console.log(sentMail);
+
     return (
         <div>
             <MailFilter filterCrit={filterCrit} onSetCriteria={onSetCriteria} />
-            <SideBarFilter updatedSentShown={updatedSentShown} filterCrit={filterCrit} onSetCriteria={onSetCriteria} />
-            <MailList mails={mails} updateMail={updateMail} />
+            <SideBarFilter unReadLength={unReadLength} updatedSentShown={updatedSentShown} filterCrit={filterCrit} onSetCriteria={onSetCriteria} />
+            <MailList mails={mails} updateMail={updateMail}
+                loggedUser={loggedUser}
+                filterCrit={filterCrit}
+                removeMailFromTrash={removeMailFromTrash} />
             {isSentShow && <SentMail updatedSentShown={updatedSentShown}
                 sentMail={sentMail} getSentedMail={getSentedMail} />}
         </div>
