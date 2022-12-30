@@ -1,16 +1,22 @@
 .emails-container {
     width: 100%;
+    overflow-y: scroll;
+}
+
+.emails-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #737272;
+    border: 1px solid #000;
+    transform: rotateX(100deg);
 }
 
 
 
-
 .email-container {
-    /* white-space: nowrap; */
-    /* text-overflow: ellipsis; */
-    /* overflow-x: hidden; */
 
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
     cursor: pointer;
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
     box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
@@ -46,13 +52,15 @@
 }
 
 .mail-list-details {
-    display: flex;
-    justify-content: space-between;
-    width: 85%;
+    display: grid;
+    /* grid-template-columns: repeat(fit, minmax(100px, 1fr)); */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .btn-list-container {
-    position: relative;
     z-index: 10;
 }
 
@@ -89,4 +97,17 @@
 
 .hidden {
     display: none;
+}
+
+.mail-body {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.mail-subject {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+
 }

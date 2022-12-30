@@ -16,13 +16,8 @@ export function MailIndex() {
 
     useEffect(() => {
         loadEmails()
-    }, [])
-    useEffect(() => {
-
     }, [filterCrit])
 
-
-    console.log('filterCrit', filterCrit);
     function updateMail(mailToUpdate, field) {
         console.log('mail with field', mailToUpdate, field);
         if (field === 'readToTrue') {
@@ -55,12 +50,12 @@ export function MailIndex() {
 
     function loadEmails() {
         mailServices.query(filterCrit).then(mails => {
+            console.log('inQUERY', filterCrit);
             setEmails(mails)
         })
     }
     function onSetCriteria(criteriaToUpdate) {
         setFilterCrit(criteriaToUpdate)
-        console.log('criteriaToUpdate22222', criteriaToUpdate);
     }
 
     function updatedSentShown(field) {

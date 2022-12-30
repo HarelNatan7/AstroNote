@@ -38,7 +38,7 @@ function createEmails() {
                 isStared: false,
                 isChecked: false,
                 isTrash: false,
-                sentAt: 1551133930594,
+                sentAt: 155133930594,
                 to: 'user@NoteHub.com',
                 from: 'nana@nana.com'
             },
@@ -51,12 +51,51 @@ function createEmails() {
                 isStared: false,
                 isChecked: false,
                 isTrash: false,
-                sentAt: 1551133930594,
+                sentAt: 155113930594,
                 to: 'user@NoteHub.com',
                 from: 'lala@lala.com'
             },
             {
                 id: 'e103',
+                name: 'mamam',
+                subject: 'Miss lala lala you!',
+                body: 'Would  kaka love to catch up sometimes',
+                isRead: false,
+                isStared: false,
+                isChecked: false,
+                isTrash: false,
+                sentAt: 155115930594,
+                to: 'user@NoteHub.com',
+                from: 'mamam@mama.com'
+            },
+            {
+                id: 'e104',
+                name: 'mamam',
+                subject: 'Miss lala lala you!',
+                body: 'Would  kaka love to catch up sometimes',
+                isRead: false,
+                isStared: false,
+                isChecked: false,
+                isTrash: false,
+                sentAt: 15511399930594,
+                to: 'user@NoteHub.com',
+                from: 'mamam@mama.com'
+            },
+            {
+                id: 'e105',
+                name: 'mamam',
+                subject: 'Miss lala lala you!',
+                body: 'Would  kaka love to catch up sometimes',
+                isRead: false,
+                isStared: false,
+                isChecked: false,
+                isTrash: false,
+                sentAt: 1551133930594,
+                to: 'user@NoteHub.com',
+                from: 'mamam@mama.com'
+            },
+            {
+                id: 'e106',
                 name: 'mamam',
                 subject: 'Miss lala lala you!',
                 body: 'Would  kaka love to catch up sometimes',
@@ -101,11 +140,23 @@ function query(criteria = getFilterCriteria()) {
         }
 
         if (criteria.status === 'star' && criteria.isStared) {
-            // console.log('filter stars');
-
             return mails.filter(mail => mail.isStared === criteria.isStared)
-
         }
+        if (criteria.status === 'readMail') {
+            console.log('hello from open');
+
+            return mails.filter(mail => mail.isRead === criteria.isRead)
+        }
+        if (criteria.status === 'unreadMail') {
+            console.log('hello from open');
+
+            return mails.filter(mail => mail.isRead !== criteria.isRead)
+        }
+        // if (criteria.status === 'trash' && criteria.isTrash) {
+        //     console.log('im in trash');
+
+        //     return mails.filter(mail => mail.isTrash === criteria.isTrash)
+        // }
 
         if (criteria.txt) {
             const regex = new RegExp(criteria.txt, 'i')
@@ -151,6 +202,7 @@ function getFilterCriteria() {
         txt: '',
         isRead: true,
         isStared: true,
+        isTrash: true,
         lables: ['important', 'romantic']
     }
     return criteria
