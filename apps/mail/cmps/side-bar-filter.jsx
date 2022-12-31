@@ -40,7 +40,7 @@ export function SideBarFilter({ updatedSentShown, filterCrit, onSetCriteria, unR
                     <div className="readMail">Opened</div>  <button className="fa-brands fa-readme"></button>
                 </div>
                 <div className="unreadMail-container" onClick={() => onClickFilter('unreadMail')}>
-                    <div className="unreadMail"><div className="unread-txt">Unread</div> </div><div className="unread-length">{unReadLength}</div>  <button className="fa-solid fa-envelope-circle-check"></button>
+                    <div className="unread-length">{unReadLength}</div>   <div className="unreadMail"><div className="unread-txt">Unread</div> </div> <button className="fa-solid fa-envelope-circle-check"></button>
                 </div>
                 <div className="sent-container" onClick={() => onClickFilter('sent')}>
                     <div className="sent">Sent</div>  <button className="fa-solid fa-paper-plane"></button>
