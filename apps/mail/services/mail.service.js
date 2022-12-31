@@ -33,7 +33,7 @@ function createEmails() {
     if (!mails || !mails.length) {
         mails = [
             {
-                id: 'e101',
+                id: utilService.makeId(),
                 name: 'Harel',
                 subject: 'Got you a big react project',
                 body: utilService.makeLorem(),
@@ -46,7 +46,7 @@ function createEmails() {
                 from: 'Harel@nana.com'
             },
             {
-                id: 'e102',
+                id: utilService.makeId(),
                 name: 'Shimi',
                 subject: 'Please help',
                 body: utilService.makeLorem(),
@@ -59,7 +59,7 @@ function createEmails() {
                 from: 'lala@lala.com'
             },
             {
-                id: 'e103',
+                id: utilService.makeId(),
                 name: 'Luli',
                 subject: 'Nice to meet you',
                 body: utilService.makeLorem(),
@@ -72,7 +72,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e104',
+                id: utilService.makeId(),
                 name: 'Puki',
                 subject: 'Hello there',
                 body: utilService.makeLorem(),
@@ -85,7 +85,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e105',
+                id: utilService.makeId(),
                 name: 'Shuki',
                 subject: 'Great news Nasdaq reach all time low',
                 body: utilService.makeLorem(),
@@ -98,7 +98,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e106',
+                id: utilService.makeId(),
                 name: 'mamam',
                 subject: 'Miss lala lala you!',
                 body: utilService.makeLorem(),
@@ -124,7 +124,7 @@ function createEmails() {
                 from: 'nana@nana.com'
             },
             {
-                id: 'e102',
+                id: utilService.makeId(),
                 name: 'Halva',
                 subject: 'Please ignore',
                 body: utilService.makeLorem(),
@@ -137,7 +137,7 @@ function createEmails() {
                 from: 'lala@lala.com'
             },
             {
-                id: 'e103',
+                id: utilService.makeId(),
                 name: 'Batel',
                 subject: 'You won 100 new brands',
                 body: utilService.makeLorem(),
@@ -150,7 +150,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e104',
+                id: utilService.makeId(),
                 name: 'Or',
                 subject: 'Miss  you!',
                 body: utilService.makeLorem(),
@@ -163,7 +163,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e105',
+                id: utilService.makeId(),
                 name: 'Oren Charizard',
                 subject: 'Come join us!',
                 body: utilService.makeLorem(),
@@ -176,7 +176,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e106',
+                id: utilService.makeId(),
                 name: 'Kai',
                 subject: 'Hello!',
                 body: utilService.makeLorem(),
@@ -189,7 +189,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e105',
+                id: utilService.makeId(),
                 name: 'Kirbi',
                 subject: 'Lets Eat it all!',
                 body: utilService.makeLorem(),
@@ -202,7 +202,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e106',
+                id: utilService.makeId(),
                 name: 'Ronaldo',
                 subject: 'Come play with me!',
                 body: utilService.makeLorem(),
@@ -215,7 +215,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e105',
+                id: utilService.makeId(),
                 name: 'Obama',
                 subject: 'Bad news on the east side',
                 body: utilService.makeLorem(),
@@ -228,7 +228,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e106',
+                id: utilService.makeId(),
                 name: 'Harel',
                 subject: 'Go to notes!',
                 body: utilService.makeLorem(),
@@ -241,7 +241,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e105',
+                id: utilService.makeId(),
                 name: 'Frikase',
                 subject: 'Buy frikase 0.99$',
                 body: utilService.makeLorem(),
@@ -254,7 +254,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e106',
+                id: utilService.makeId(),
                 name: 'linkedin',
                 subject: 'found 12 jobs fit for your profile!',
                 body: utilService.makeLorem(),
@@ -267,7 +267,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e105',
+                id: utilService.makeId(),
                 name: 'Pikachu',
                 subject: 'MAKAT BARAK',
                 body: utilService.makeLorem(),
@@ -280,7 +280,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e106',
+                id: utilService.makeId(),
                 name: 'Sells',
                 subject: 'LO KANITA LO ASITA!',
                 body: utilService.makeLorem(),
@@ -293,7 +293,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e105',
+                id: utilService.makeId(),
                 name: 'Matbuha',
                 subject: 'Tasty',
                 body: utilService.makeLorem(),
@@ -306,7 +306,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e106',
+                id: utilService.makeId(),
                 name: 'Shimi',
                 subject: 'Hello!',
                 body: utilService.makeLorem(),
@@ -319,7 +319,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e105',
+                id: utilService.makeId(),
                 name: 'slav',
                 subject: 'Gozal',
                 body: utilService.makeLorem(),
@@ -332,7 +332,7 @@ function createEmails() {
                 from: 'mamam@mama.com'
             },
             {
-                id: 'e106',
+                id: utilService.makeId(),
                 name: 'Make Pire',
                 subject: 'Potatos today!',
                 body: utilService.makeLorem(),

@@ -11,21 +11,22 @@
 }
 
 .side-bar-filter {
-    width: 3em;
+    width: 75px;
     height: 100vh;
     background-color: var(--navClr);
     position: fixed;
     right: 0;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: flex-end;
     border-radius: 10px;
     transition: 0.3s;
     z-index: 10;
-    /* justify-content: flex-end; */
+    padding-inline-end: 10px;
     margin-top: 5.1875;
     top: 0;
     color: var(--txtClr);
     text-align: center;
+
 }
 
 
@@ -52,12 +53,15 @@
 .btn-side-bar-container {
     display: flex;
     flex-direction: column;
-
+    /* display: flex; */
+    align-content: flex-end;
+    gap: 10px;
 }
 
 .btn-side-bar-container * {
     background-color: var(--navClr);
     color: var(--txtClr);
+
 
 }
 
@@ -68,10 +72,14 @@
 
 .compose-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     cursor: pointer;
     transition: 0.5s;
+}
+
+.compose-container:hover {
+    padding: 5px;
 }
 
 .compose {
@@ -95,7 +103,7 @@
 }
 
 .inbox-container:hover {
-    padding: 1em;
+    padding: 5px;
 }
 
 .inbox {
@@ -107,7 +115,7 @@
 .side-bar-filter:hover .inbox {
     display: block;
     animation: fade_in_show 0.5s;
-    margin-inline-end: 10px;
+    /* margin-inline-end: 10px; */
 }
 
 
@@ -122,7 +130,7 @@
 }
 
 .unreadMail-container:hover {
-    padding: 1em;
+    padding: 5px;
 }
 
 .unreadMail {
@@ -158,7 +166,7 @@
 }
 
 .trash-container:hover {
-    padding: 1em;
+    padding: 5px;
 }
 
 .trash {
@@ -184,7 +192,7 @@
 }
 
 .star-container:hover {
-    padding: 1em;
+    padding: 5px;
 }
 
 .star {
@@ -209,7 +217,7 @@
 }
 
 .readMail-container:hover {
-    padding: 1em;
+    padding: 5px;
 }
 
 .readMail {
@@ -234,7 +242,7 @@
 }
 
 .sent-container:hover {
-    padding: 1em;
+    padding: 5px;
 }
 
 .sent {
@@ -260,7 +268,7 @@
 
 
 .draft-container:hover {
-    padding: 1em;
+    padding: 5px;
 }
 
 .draft {
