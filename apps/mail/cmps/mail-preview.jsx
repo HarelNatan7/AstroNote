@@ -55,6 +55,7 @@ export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMa
         setIsExpanded(!isExpanded)
     }
 
+
     if (!mail) return <h1>loading...</h1>
     return (
         <Fragment>
@@ -72,7 +73,7 @@ export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMa
                     <span className="from">{(mail.name === loggedUser.fullname) ? 'Me' : mail.name}</span>
                     <span className="mail-subject">{mail.subject}</span>
                     <div className="mail-body">{mail.body}</div>
-                    <span>{new Date(mail.sentAt).toLocaleString('default', {
+                    <span className="date">{new Date(mail.sentAt).toLocaleString('default', {
                         month: 'long',
                     })}</span>
                 </div>

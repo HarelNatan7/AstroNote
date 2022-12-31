@@ -1,6 +1,6 @@
 .emails-container {
     width: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .emails-container::-webkit-scrollbar-track {
@@ -111,3 +111,43 @@
     overflow-x: hidden;
 
 }
+
+
+@media (max-width: 955px) {
+
+
+    .email-container {
+        grid-template-columns: 1fr;
+    }
+
+    .mail-list-details {
+        grid-template-columns: 1fr;
+    }
+
+    .from {
+        padding: 1em;
+    }
+
+    .mail-subject {
+        padding: 1.3em;
+    }
+
+    .mail-body {
+        padding: 1.5em;
+    }
+
+    .date {
+        text-align: center;
+        margin-inline-end: 2rem;
+    }
+}
+
+/* 
+.email-container {
+
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
+} */

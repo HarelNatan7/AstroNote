@@ -3,15 +3,20 @@ const { useState, useEffect } = React
 
 import { MailPreview } from "./mail-preview.jsx";
 export function MailList({ mails, updateMail, loggedUser, filterCrit, removeMailFromTrash, getDraftMail }) {
-    // const [clickedMailId, setClickedMailId] = useState('')
-    const navigate = useNavigate()
 
-    useEffect(() => {
-        // navigate(`/mail/${clickedMailId}`)
 
-    }, []);
+    function emptyMailMsg() {
+        if (filterCrit.status === 'star' && !mails.length) return 'No stared mails found'
+        if (filterCrit.status === 'inbox' && !mails.length) return 'No mails found'
+        if (filterCrit.status === 'draft' && !mails.length) return 'No draft mails found'
+        if (filterCrit.status === 'sent' && !mails.length) return 'No sent mails found'
+        if (filterCrit.status === 'trash' && !mails.length) return 'No trashed mails found'
+        if (filterCrit.status === 'readMail' && !mails.length) return 'No read mails found'
+        if (filterCrit.status === 'unreadMail' && !mails.length) return 'No opened mails found'
+    }
 
-    if (!mails) return <h1>loading...</h1>
+
+    if (!mails || !mails.length) return <h1>{emptyMailMsg()}</h1>
     return (
         <div className="emails-container">
             <div>

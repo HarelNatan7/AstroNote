@@ -19,11 +19,18 @@ export function MailIndex() {
     useEffect(() => {
 
         loadEmails()
-        loadUnreadLength()
+
     }, [filterCrit])
 
+    useEffect(() => {
+        loadUnreadLength()
 
 
+    }, [mails])
+
+
+
+    console.log(unReadLength);
 
     function updateMail(mailToUpdate, field) {
         console.log('mail with field', mailToUpdate, field);
@@ -79,6 +86,7 @@ export function MailIndex() {
 
     function loadUnreadLength() {
         mailServices.getUnreadMailCount(unReadLength).then(length => {
+            console.log('length', length);
             setUnreadLength(length)
         })
 
@@ -110,6 +118,7 @@ export function MailIndex() {
 
     function getDraftMail(mail) {
         setdraftMail(mail)
+        setIsSentShow(true)
     }
     // console.log(draftMail, 'draftMail');
     return (
@@ -123,7 +132,7 @@ export function MailIndex() {
                 filterCrit={filterCrit}
                 getDraftMail={getDraftMail}
                 removeMailFromTrash={removeMailFromTrash} />
-            {isSentShow && <SentMail updatedSentShown={updatedSentShown}
+            {isSentShow && <SentMail draftInfo={draftMail} updatedSentShown={updatedSentShown}
                 sentMail={sentMail} getSentedMail={getSentedMail}
                 filterCrit={filterCrit} onSetCriteria={onSetCriteria} />}
         </div>

@@ -2,7 +2,7 @@ const { useState, useEffect } = React
 
 
 
-export function SentMail({ updatedSentShown, sentMail, getSentedMail, filterCrit, onSetCriteria }) {
+export function SentMail({ draftInfo, updatedSentShown, sentMail, getSentedMail, filterCrit, onSetCriteria }) {
     const [updatedSentMail, setUpdatedSentMail] = useState(sentMail)
     const [updateCrit, setUpdateCrit] = useState(filterCrit)
     const [draftMail, setDraftMail] = useState(updatedSentMail)
@@ -39,11 +39,13 @@ export function SentMail({ updatedSentShown, sentMail, getSentedMail, filterCrit
     function onClickDraft() {
         getSentedMail(draftMail)
         updatedSentShown(false)
-        onSetCriteria(updateCrit)
+        onSetCriteria(prevCrit => {
+            return { ...prevCrit, status: "inbox" }
+        })
     }
-
+    console.log('filterCrit', filterCrit);
     /// need to support טיוטות
-
+    // navigate back to mail inbox
     return (
         <form className="sent-mail" onSubmit={onSubmintSentMail}>
             <div className="sent-message">
@@ -52,15 +54,15 @@ export function SentMail({ updatedSentShown, sentMail, getSentedMail, filterCrit
             </div>
             <div className="sent-emailTo">
                 <label htmlFor="email"></label>
-                <input onChange={handleChange} type="email" name="to" id="email" placeholder="To" required />
+                <input onChange={handleChange} value={(filterCrit.status !== 'draft') ? updatedSentMail.to : draftInfo.to} type="email" name="to" id="email" placeholder="To" required />
             </div>
             <div className="sent-subject">
                 <label htmlFor="text"></label>
-                <input onChange={handleChange} type="text" name="subject" id="subject" placeholder="Subject" />
+                <input onChange={handleChange} value={(filterCrit.status !== 'draft') ? updatedSentMail.subject : draftInfo.subject} type="text" name="subject" id="subject" placeholder="Subject" />
             </div>
             <div className="sent-textarea">
                 <label htmlFor="body"></label>
-                <textarea onChange={handleChange} type="textarea" name="body" id="body" placeholder="enter text" ></textarea>
+                <textarea onChange={handleChange} value={(filterCrit.status !== 'draft') ? updatedSentMail.body : draftInfo.body} type="textarea" name="body" id="body" placeholder="enter text" ></textarea>
             </div>
             <div className="sent-btn-container">
                 <button className="sent-button" type="submit">Send</button>

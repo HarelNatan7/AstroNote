@@ -210,6 +210,7 @@ function getDefaultSentMail() {
         isStared: false,
         isChecked: false,
         isTrash: false,
+        isDraft: false,
         from: loggedinUser.mail
     }
     return mailSent
@@ -234,6 +235,8 @@ function getLoggedUser() {
 function getUnreadMailCount() {
     return storageService.query(MAILS_KEY).then(mails => {
         const mailLength = mails.filter(mail => mail.isRead === false && mail.name !== loggedinUser.fullname)
+        console.log('mailLength', mailLength);
+
         return mailLength.length
     })
 }

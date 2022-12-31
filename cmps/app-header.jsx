@@ -2,7 +2,7 @@ const { Link, NavLink } = ReactRouterDOM
 
 export function AppHeader() {
 
-    return <header className="app-header">
+    return <header className="app-header-container">
         <div className="header-container">
             <Link to="/"><img src='../assets/svg/Astronote-Cyan.svg' /></Link>
             <nav className="app-nav">

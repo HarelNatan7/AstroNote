@@ -1,20 +1,52 @@
+@keyframes fade_in_show {
+    0% {
+        opacity: 0;
+        transform: scale(0)
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
 .side-bar-filter {
     width: 3em;
     height: 100vh;
     background-color: var(--navClr);
     position: fixed;
     right: 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     border-radius: 10px;
-    transition: 0.5s;
+    transition: 0.3s;
     z-index: 10;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
+    margin-top: 5.1875;
+    top: 0;
     color: var(--txtClr);
+    text-align: center;
 }
+
 
 .side-bar-filter:hover {
     width: 140px;
 
+}
+
+.side-bar-filter .fa-solid {
+    font-size: 1.1em;
+    text-align: end;
+}
+
+.side-bar-filter .fa-regular {
+    font-size: 1.1em;
+    text-align: end;
+}
+
+.side-bar-filter .fa-brands {
+    font-size: 1.1em;
+    text-align: end;
 }
 
 .btn-side-bar-container {
@@ -29,40 +61,9 @@
 
 }
 
-.side-bar-filter:hover .fa-pencil::after {
+.side-bar-filter .fa-pencil {
+    font-size: 1.3em;
     transition: 0.5s;
-}
-
-
-
-.side-bar-filter:hover .compose::before {
-    font-size: 1rem;
-    content: "compose";
-    text-transform: lowercase;
-    transition: opacity 0.5s ease;
-    -webkit-transition: opacity 0.5s ease;
-}
-
-.side-bar-filter:hover .unreadMail::before {
-    font-size: 1rem;
-    content: "Unread ";
-    text-transform: lowercase;
-    transition: opacity 0.5s ease;
-    -webkit-transition: opacity 0.5s ease;
-}
-
-
-
-.inbox {
-    transition: 0.5s;
-}
-
-.side-bar-filter:hover .inbox::before {
-    font-size: 1rem;
-    content: "Incoming Mail ";
-    text-transform: lowercase;
-    transition: opacity 0.5s ease;
-    -webkit-transition: opacity 0.5s ease;
 }
 
 .compose-container {
@@ -73,15 +74,206 @@
     transition: 0.5s;
 }
 
-.inbox-container {
-    display: flex;
-    align-items: center;
+.compose {
+    position: relative;
+    display: none;
 }
 
-.compose-container *:hover {}
+
+.side-bar-filter:hover .compose {
+    display: block;
+    animation: fade_in_show 0.5s;
+
+}
+
+.inbox-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.inbox-container:hover {
+    padding: 1em;
+}
+
+.inbox {
+    position: relative;
+    display: none;
+}
+
+
+.side-bar-filter:hover .inbox {
+    display: block;
+    animation: fade_in_show 0.5s;
+    margin-inline-end: 10px;
+}
+
+
+
+/* .compose-container *:hover {} */
 
 .unreadMail-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    text-align: end;
+    cursor: pointer;
     align-items: center;
+    transition: 0.5s;
+}
+
+.unreadMail-container:hover {
+    padding: 1em;
+}
+
+.unreadMail {
+    /* flex-basis: 50%; */
+    text-align: end;
     justify-content: space-between;
+}
+
+.unread-txt {
+    position: relative;
+    display: none;
+}
+
+.side-bar-filter:hover .unread-txt {
+    display: block;
+    animation: fade_in_show 0.5s;
+    /* margin-inline-end: 10px; */
+}
+
+.side-bar-filter:hover .unread-length {
+    display: block;
+    animation: fade_in_show 0.5s;
+    /* margin-inline-end: 10px; */
+}
+
+
+.trash-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.trash-container:hover {
+    padding: 1em;
+}
+
+.trash {
+    position: relative;
+    display: none;
+    text-align: end;
+
+}
+
+.side-bar-filter:hover .trash {
+    display: block;
+    animation: fade_in_show 0.5s;
+    /* margin-inline-end: 10px; */
+}
+
+
+.star-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.star-container:hover {
+    padding: 1em;
+}
+
+.star {
+    position: relative;
+    display: none;
+    text-align: end;
+
+}
+
+.side-bar-filter:hover .star {
+    display: block;
+    animation: fade_in_show 0.5s;
+    /* margin-inline-end: 10px; */
+}
+
+.readMail-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.readMail-container:hover {
+    padding: 1em;
+}
+
+.readMail {
+    position: relative;
+    display: none;
+    text-align: end;
+
+}
+
+.side-bar-filter:hover .readMail {
+    display: block;
+    animation: fade_in_show 0.5s;
+    /* margin-inline-end: 10px; */
+}
+
+.sent-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.sent-container:hover {
+    padding: 1em;
+}
+
+.sent {
+    position: relative;
+    display: none;
+    text-align: end;
+
+}
+
+.side-bar-filter:hover .sent {
+    display: block;
+    animation: fade_in_show 0.5s;
+    /* margin-inline-end: 10px; */
+}
+
+.draft-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+.draft-container:hover {
+    padding: 1em;
+}
+
+.draft {
+    position: relative;
+    display: none;
+    text-align: end;
+
+}
+
+.side-bar-filter:hover .draft {
+    display: block;
+    animation: fade_in_show 0.5s;
+    /* margin-inline-end: 10px; */
 }
