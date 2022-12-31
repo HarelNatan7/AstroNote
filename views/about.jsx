@@ -16,7 +16,7 @@ export function About() {
             </div>
             <div className="harel">
                 <div className="harel-img">
-                    <img src="./assets/img/me.jpg" alt="sss" />
+                    <img src="./assets/img/Me.jpg" alt="sss" />
                 </div>
 
                 <div className="link-container">
