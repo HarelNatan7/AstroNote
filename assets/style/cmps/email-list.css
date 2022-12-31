@@ -112,6 +112,9 @@
 
 }
 
+.expanded-btn {
+    margin-inline-end: 3em;
+}
 
 @media (max-width: 955px) {
 
@@ -125,15 +128,20 @@
     }
 
     .from {
-        padding: 1em;
+        /* padding: 1em; */
+
+        margin-inline-start: 2rem;
     }
 
     .mail-subject {
-        padding: 1.3em;
+        /* padding: 1.3em; */
+        margin-inline-start: 3rem;
     }
 
     .mail-body {
-        padding: 1.5em;
+        /* padding: 1.5em; */
+        inline-size: 500px;
+        margin-inline-start: 4rem;
     }
 
     .date {

@@ -1,6 +1,7 @@
 const { useState, useEffect } = React
 
 
+import { eventBusService, showSuccessMsg, showErrorMsg } from "../../../services/event-bus.service.js"
 
 export function SentMail({ draftInfo, updatedSentShown, sentMail, getSentedMail, filterCrit, onSetCriteria }) {
     const [updatedSentMail, setUpdatedSentMail] = useState(sentMail)
@@ -30,9 +31,8 @@ export function SentMail({ draftInfo, updatedSentShown, sentMail, getSentedMail,
     function onSubmintSentMail(ev) {
         ev.preventDefault()
         getSentedMail(updatedSentMail)
-
-        console.log(updateCrit, 'updateCrit');
         onSetCriteria(updateCrit)
+        showSuccessMsg('Mail sent')
     }
 
 
@@ -42,10 +42,9 @@ export function SentMail({ draftInfo, updatedSentShown, sentMail, getSentedMail,
         onSetCriteria(prevCrit => {
             return { ...prevCrit, status: "inbox" }
         })
+        showSuccessMsg('Saved to draft')
     }
-    console.log('filterCrit', filterCrit);
-    /// need to support טיוטות
-    // navigate back to mail inbox
+
     return (
         <form className="sent-mail" onSubmit={onSubmintSentMail}>
             <div className="sent-message">

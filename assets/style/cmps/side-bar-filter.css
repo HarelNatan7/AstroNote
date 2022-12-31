@@ -277,3 +277,23 @@
     animation: fade_in_show 0.5s;
     /* margin-inline-end: 10px; */
 }
+
+.hamburger {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    color: var(--txtClr);
+    background-color: var(--navClr);
+}
+
+
+@media (max-width:955px) {
+
+
+    .hamburger {
+        display: block;
+    }
+
+
+}

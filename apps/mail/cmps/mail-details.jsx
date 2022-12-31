@@ -3,6 +3,7 @@ const { useState, useEffect } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
 
 import { mailServices } from "../services/mail.service.js"
+import { eventBusService, showSuccessMsg, showErrorMsg } from "../../../services/event-bus.service.js"
 
 export function MailDetails() {
     const [mail, setMail] = useState(null)
@@ -12,7 +13,7 @@ export function MailDetails() {
 
     useEffect(() => {
         loadMail()
-    }, []);
+    }, [mailtoUpdate]);
 
     useEffect(() => {
         updateMail()
@@ -28,10 +29,9 @@ export function MailDetails() {
     }
 
     function updateMail() {
-        console.log(mailtoUpdate);
 
         if (!mailtoUpdate) return
-        console.log(mailtoUpdate);
+
         mailServices.put(mailtoUpdate).then((mailtoUpdate) => {
 
             setMail(mailtoUpdate)
@@ -46,6 +46,7 @@ export function MailDetails() {
                 return { ...mail, isTrash: true }
             } else return { ...mail, isTrash: false }
         })
+        showSuccessMsg('Mail sent to trash')
     }
 
     function onStarMail() {
@@ -57,15 +58,14 @@ export function MailDetails() {
 
     }
 
-
+    console.log('mailsdasdasdas mail', mail);
     if (!mail) return <h1>loading...</h1>
     return (
         <div className="mail-details">
             <div className="btn-nav-container">
                 <div className="btn-detail-container">
                     <button onClick={onClickTrash} className={`fa-solid fa-delete`}></button>
-                    <button onClick={onStarMail} className={`fa-regular fa-star ${mail.isStared ? 'stared' : ''}`}></button>
-                    <button className="fa-regular fa-bookmark"></button>
+                    <button onClick={onStarMail} className={`fa-regular fa-star  ${mail.isStared ? 'stared' : ''}`}> </button>
                     <Link to="/mail" className="fa-solid fa-arrow-right-long arrow-back"></Link>
                 </div>
             </div>
