@@ -1,8 +1,8 @@
 .app-header {
     color: var(--txtClr);
     background-color: var(--navClr);
-    min-height: 100vh;
-    width: 55px;
+    /* min-height: 100vh; */
+    width: 100%;
     left: 0;
     margin-top: 0;
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.7);
@@ -10,7 +10,7 @@
 
 .app-nav {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     font-family: fira-medium;
 }
