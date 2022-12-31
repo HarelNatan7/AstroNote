@@ -112,8 +112,9 @@
 
 
 .unreadMail-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
     text-align: end;
     cursor: pointer;
     align-items: center;
