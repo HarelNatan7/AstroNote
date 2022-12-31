@@ -49,8 +49,8 @@ export function NotePreview({ note, onRemoveNote, onPinNote }) {
         <div className="note-btn-container">
             <button className="fa-solid fa-pin" onClick={() => onPinNote(note.id)}></button>
             <button className="fa-solid fa-color" onClick={() => onBgColorSelect()}></button>
-            <button className="fa-solid fa-edit"></button>
-            <button className="fa-solid fa-mail"></button>
+            {/* <button className="fa-solid fa-edit"></button> */}
+            {/* <button className="fa-solid fa-mail"></button> */}
             <button className="fa-solid fa-delete" onClick={() => onRemoveNote(event, note.id)}></button>
         </div>
         <div className="note-bgc-container"
