@@ -100,7 +100,7 @@ function _createNotes() {
             {
                 id: 'n103',
                 type: 'txt-note',
-                isPinned: true,
+                isPinned: false,
                 info: {
                     txt: '“When I get sad, I stop being sad and be awesome instead.”',
                     todos: []
@@ -124,17 +124,31 @@ function _createNotes() {
             {
                 id: 'n105',
                 type: 'video-note',
-                isPinned: false,
+                isPinned: true,
                 info: {
                     title: 'The Best Player In The World',
                     url: 'https://www.youtube.com/embed/Rh6R4aMm_PA',
-                    todos: [
-                        { txt: 'Driving liscence', doneAt: null },
-                        { txt: 'Coding power', doneAt: 187111111 }
-                    ]
+                    todos: []
                 },
                 style: {
                     backgroundColor: ''
+                }
+            },
+            {
+                id: 'n106',
+                type: 'list-note',
+                isPinned: true,
+                info: {
+                    title: 'My Todos',
+                    todos: [
+                        { txt: 'Mastering React', isDone: false },
+                        { txt: 'Win The World Cup', isDone: false },
+                        { txt: 'Be A Proffesional Full Stack Developer', isDone: false },
+                        { txt: 'Kill The Pope', isDone: false },
+                    ]
+                },
+                style: {
+                    backgroundColor: 'lightpink'
                 }
             },
         ]

@@ -24,9 +24,11 @@
     padding: 12px;
     /* min-height: 7vh; */
     height: fit-content;
+    max-width: 250px;
     word-wrap: break-word;
     cursor: pointer;
     transition: .6s;
+    line-height: 1.5;
 }
 
 .note img {

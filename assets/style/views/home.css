@@ -29,8 +29,36 @@
     font-family: fira-medium;
 }
 
-@media (max-width:955px) {
+@media (min-width:955px) {
+    
     .home {
-        height: 100vh;
+        position: relative;
+        height: 100%;
+        background-image: url(../../../assets/img/Hero.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .home img {
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: fira-medium;
+        width: 75%;
+    }
+    
+    .home span {
+        font-family: fira-medium;
+        color: #de9a36;
+    }
+    
+    .home h2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4.1rem;
+        font-family: fira-medium;
     }
 }

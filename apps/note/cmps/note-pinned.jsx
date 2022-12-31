@@ -18,7 +18,7 @@ export function PinnedNote({ notes, onRemoveNote, onPinNote }) {
     }
 
     return <Fragment>
-        <h1>Pinned</h1>
+        <h1 className="pinned-label">Pinned</h1>
         <ul className="pinned-notes-container grid clean-list"  >
             {notes = notes.filter(note => note.isPinned)
                 .map(note => <NotePreview note={note} key={note.id}

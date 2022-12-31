@@ -1,7 +1,5 @@
 .select-container {
-    position: absolute;
-    top: 5%;
-    right: 5%;
+    margin: 0 auto;
 }
 
 #type {
@@ -11,4 +9,26 @@
     padding: 7px;
     border-radius: 7px;
     cursor: pointer;
+}
+
+@media (min-width:1150px) {
+    .select-container {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+    }
+
+}
+
+@media (min-width:955px) {
+    
+    
+    #type {
+        background-color: #525356;
+        border: none;
+        color: #fff;
+        padding: 7px;
+        border-radius: 7px;
+        cursor: pointer;
+    }
 }

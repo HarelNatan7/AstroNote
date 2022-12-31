@@ -6,7 +6,7 @@ import { NotePreview } from "./note-preview.jsx"
 export function NoteList({ notes, onRemoveNote, onPinNote }) {
 
     return <Fragment>
-        <h1>Others</h1>
+        <h1 className="others-label">Others</h1>
         <ul className="notes-container grid clean-list"  >
             {notes = notes.filter(note => !note.isPinned)
                 .map(note => <NotePreview
