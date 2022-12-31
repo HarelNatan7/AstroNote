@@ -111,9 +111,6 @@
 }
 
 
-
-/* .compose-container *:hover {} */
-
 .unreadMail-container {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -289,7 +286,12 @@
 
 
 @media (max-width:955px) {
+    .side-bar-filter {
+        opacity: 0.8;
+        /* height: 60%; */
+        top: 280px;
 
+    }
 
     .hamburger {
         display: block;

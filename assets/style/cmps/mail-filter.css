@@ -22,3 +22,11 @@
     padding-right: 1em;
     background-color: var(--navClr);
 }
+
+
+@media(max-width:550px) {
+
+    .mail-filter input {
+        width: 50%;
+    }
+}
