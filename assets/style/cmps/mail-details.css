@@ -15,3 +15,34 @@
     margin-inline-end: 10px;
 
 }
+
+.mail-detail-body {
+    inline-size: 500px;
+    /* need to change accordingly to the width of the phone */
+    overflow-wrap: break-word;
+    font-size: 1.2em;
+    margin-inline-start: 4em;
+}
+
+
+.detail-subject {
+    padding: 0.5em;
+}
+
+.detail-from {
+    padding: 1em;
+    font-size: 1.3em;
+}
+
+.detail-to {
+    margin-inline-start: 3em;
+}
+
+
+
+@media(max-width:500px) {
+
+    .mail-detail-body {
+        inline-size: 200px;
+    }
+}

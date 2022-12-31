@@ -2,7 +2,7 @@
 const { useState, useEffect, Fragment } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
 
-export function PreviewExpanded({ mail, updateMail }) {
+export function PreviewExpanded({ mail, updateMail, setIsExpanded }) {
     const [currExpandedMailId, setCurrExpandedMailId] = useState(null)
     const navigate = useNavigate()
     useEffect(() => {
@@ -14,6 +14,7 @@ export function PreviewExpanded({ mail, updateMail }) {
         navigate(`/mail/${mailId}`)
     }
     function deleteFromExpand() {
+        setIsExpanded(false)
         updateMail(mail, 'mailTrash')
     }
 
@@ -27,10 +28,10 @@ export function PreviewExpanded({ mail, updateMail }) {
                 </div>
             </div>
             <div >
-                <div>{mail.name}: {'<' + mail.from + '>'}</div>
+                <div className="expanded-from">{mail.name}: {'<' + mail.from + '>'}</div>
             </div>
             <div className="expanded-body" >
-                <div > {mail.body}</div>
+                <div className="mail-body"> {mail.body}</div>
             </div>
         </div>
 

@@ -140,6 +140,14 @@
         text-align: center;
         margin-inline-end: 2rem;
     }
+
+    .expanded-btn {
+        margin-inline-end: 3em;
+    }
+
+    .btn-list-container {
+        width: fit-content;
+    }
 }
 
 /* 

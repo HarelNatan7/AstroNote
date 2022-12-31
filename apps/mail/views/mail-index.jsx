@@ -74,7 +74,7 @@ export function MailIndex() {
         })
     }
 
-    console.log(mails);
+
 
     function removeMailFromTrash(mailId) {
 
@@ -86,7 +86,6 @@ export function MailIndex() {
 
     function loadUnreadLength() {
         mailServices.getUnreadMailCount(unReadLength).then(length => {
-            console.log('length', length);
             setUnreadLength(length)
         })
 
@@ -99,7 +98,6 @@ export function MailIndex() {
     }
 
     function onSetCriteria(criteriaToUpdate) {
-        console.log('criteriaToUpdate', criteriaToUpdate);
         if (criteriaToUpdate.status === 'trash') {
             criteriaToUpdate.isTrash = true
         } else criteriaToUpdate.isTrash = false
@@ -120,7 +118,6 @@ export function MailIndex() {
         setdraftMail(mail)
         setIsSentShow(true)
     }
-    // console.log(draftMail, 'draftMail');
     return (
         <div>
             <MailFilter filterCrit={filterCrit} onSetCriteria={onSetCriteria} />

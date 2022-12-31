@@ -8,7 +8,7 @@ export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMa
 
     function onOpenMail(ev) {
         ev.stopPropagation()
-        console.log('onOpenMail');
+        if (filterCrit.status === 'trash') return
         updateMail(mail, 'readToTrue')
     }
     function onUnreadMail(ev) {
@@ -52,6 +52,7 @@ export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMa
         if (mail.isDraft) {
             getDraftMail(mail)
         }
+        if (filterCrit.status === 'trash' || filterCrit.status === 'draft') return
         setIsExpanded(!isExpanded)
     }
 

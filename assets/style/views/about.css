@@ -1,0 +1,26 @@
+.detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 12px;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+
+
+
+.oren {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: fit-content;
+}
+
+.harel {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: fit-content;
+}
+
+.oren-img {
+    max-width: 100%;
+}

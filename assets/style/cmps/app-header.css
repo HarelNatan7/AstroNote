@@ -32,6 +32,14 @@
     display: none;
 }
 
+/* .logo {
+    position: relative;
+    height: 50px;
+    width: 125px;
+    min-width: max-content;
+    z-index: 1;
+    background-color: var(--navClr);
+} */
 
 
 @media (min-width: 955px) {
@@ -70,10 +78,12 @@
         margin-left: 10px;
     }
 
+
+
 }
 
-@media (max-width) {
+/* @media (max-width) {
     .app-header {
         height: auto;
     }
-}
+} */

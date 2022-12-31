@@ -31,3 +31,17 @@
 .read {
     color: var(--unreadTxtClr);
 }
+
+.mail-body {
+    inline-size: 150px;
+    overflow-wrap: break-word;
+}
+
+
+@media (max-width:955px) {
+    .expanded-from {
+        padding: 1.2em;
+    }
+
+
+}

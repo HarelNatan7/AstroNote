@@ -70,14 +70,15 @@ export function MailDetails() {
                 </div>
             </div>
             <div className="subject-container">
-                <h1>{mail.subject}</h1>
+                <h1 className="detail-subject">{mail.subject}</h1>
             </div>
             <div className="mail-from-container">
-                <h2>from: {mail.from}</h2>
-                <h5>me: {mail.to}</h5>
+
+                <h2 className="detail-from">{mail.name}: {'<' + mail.from + '>'}</h2>
+                <h3 className="detail-to">to: {mail.to}</h3>
             </div>
             <div className="body-container">
-                <div>{mail.body}</div>
+                <div className="mail-detail-body">{mail.body}</div>
             </div> </div>
 
     )
