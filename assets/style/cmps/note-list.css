@@ -7,7 +7,7 @@
 .pinned-notes-container {
     grid-template-columns: repeat(auto-fit, minmax(177px, 1fr));
     gap: 27px;
-    margin: 0 2vw 15px;
+    margin: 0 2vw 40px;
 }
 
 .notes-container {
@@ -82,4 +82,14 @@
     color: #bebebf;
     border: 0;
     cursor: pointer;
+}
+
+@media (max-width: 555px) {
+    .note-btn-container {
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        transition: .3s;
+        opacity: 1;
+    }
 }

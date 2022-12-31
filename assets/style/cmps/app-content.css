@@ -4,11 +4,12 @@
 }
 
 .app-content {
-    height: auto;
+    height: 100vh;
     width: 100%;
     /* overflow-y: scroll; */
     background-color: var(--mainBgc);
     color: var(--txtClr);
+    padding-top: 140px;
 }
 
 @media (min-width: 955px) {
@@ -18,22 +19,14 @@
     }
 
     .app-content {
-        /* height: auto; */
+        height: auto;
         width: 100%;
         /* overflow-y: scroll; */
         background-color: var(--mainBgc);
         color: var(--txtClr);
+        padding-top: 0;
     }
 
 
 }
 
-@media (max-width:995px) {
-    .app-content {
-        height: 100vh;
-        width: 100%;
-        /* overflow-y: scroll; */
-        background-color: var(--mainBgc);
-        color: var(--txtClr);
-    }
-}
