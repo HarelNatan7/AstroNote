@@ -12,6 +12,7 @@ body {
     margin: 0;
     color: var(--txtClr);
     min-height: 100%;
+    background-color: var(--mainBgc);
 }
 
 h1,

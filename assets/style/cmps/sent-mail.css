@@ -1,15 +1,15 @@
 .sent-mail {
-    position: absolute;
+    position: fixed;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 6fr 1fr;
     width: 30%;
     height: 50%;
     bottom: 0;
-    left: 175px;
+    left: 155px;
     border: 2px solid var(--txtClr);
     border-radius: 10px;
-
+    z-index: 10;
 }
 
 .sent-message {
@@ -86,4 +86,12 @@
     margin-inline-start: 10px;
     padding: 1.4em;
     color: var(--txtClr);
+}
+
+
+@media (max-width: 995px) {
+    .sent-mail {
+
+        left: 0px;
+    }
 }

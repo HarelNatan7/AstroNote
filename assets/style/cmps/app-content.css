@@ -16,14 +16,24 @@
         height: 100%;
         flex-direction: row;
     }
-    
+
     .app-content {
-        height: auto;
+        /* height: auto; */
         width: 100%;
         /* overflow-y: scroll; */
         background-color: var(--mainBgc);
         color: var(--txtClr);
     }
-    
-    
+
+
+}
+
+@media (max-width:995px) {
+    .app-content {
+        height: 100vh;
+        width: 100%;
+        /* overflow-y: scroll; */
+        background-color: var(--mainBgc);
+        color: var(--txtClr);
+    }
 }
