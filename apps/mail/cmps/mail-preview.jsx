@@ -1,7 +1,8 @@
-import { PreviewExpanded } from "./preview-expanded.jsx"
 
 const { useState, useEffect, Fragment, useRef } = React
+import { eventBusService, showSuccessMsg, showErrorMsg } from "../../../services/event-bus.service.js"
 
+import { PreviewExpanded } from "./preview-expanded.jsx"
 
 export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMailFromTrash, getDraftMail }) {
     const [isExpanded, setIsExpanded] = useState(false)
@@ -20,6 +21,7 @@ export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMa
     function onStarMail(ev) {
         ev.stopPropagation()
         updateMail(mail, 'star')
+
     }
     function onCheckedMail(ev) {
         console.log('onCheckedMail');
@@ -32,15 +34,18 @@ export function MailPreview({ mail, updateMail, loggedUser, filterCrit, removeMa
         ev.stopPropagation()
         if (filterCrit.status === 'trash') {
             removeMailFromTrash(mail.id)
+            showSuccessMsg('Mail removed')
             return
         }
         console.log('asdasd');
         mail.dateRemoved = Date.now()
         updateMail(mail, 'mailTrash')
+        showSuccessMsg('Moved to trash')
     }
     function onUnTrash(ev) {
         ev.stopPropagation()
         updateMail(mail, 'trashToMail')
+        showSuccessMsg('Moved inbox')
     }
 
     function isMailRead() {

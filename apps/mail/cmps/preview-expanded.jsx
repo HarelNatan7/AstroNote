@@ -1,6 +1,7 @@
 
 const { useState, useEffect, Fragment } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
+import { eventBusService, showSuccessMsg, showErrorMsg } from "../../../services/event-bus.service.js"
 
 export function PreviewExpanded({ mail, updateMail, setIsExpanded }) {
     const [currExpandedMailId, setCurrExpandedMailId] = useState(null)
@@ -16,6 +17,7 @@ export function PreviewExpanded({ mail, updateMail, setIsExpanded }) {
     function deleteFromExpand() {
         setIsExpanded(false)
         updateMail(mail, 'mailTrash')
+        showSuccessMsg('Moved to trash')
     }
 
     return (

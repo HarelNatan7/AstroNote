@@ -1,7 +1,8 @@
 
 
-const { useState, useEffect } = React
+// const { useState, useEffect } = React
 
+const { useState, useEffect, Fragment, useRef } = React
 export function SideBarFilter({ updatedSentShown, filterCrit, onSetCriteria, unReadLength }) {
     const [updatedFilterCrit, setUpdatedCrit] = useState(filterCrit)
 
@@ -16,7 +17,11 @@ export function SideBarFilter({ updatedSentShown, filterCrit, onSetCriteria, unR
             return { ...prevCrit, status }
         })
     }
+
+
+
     return (
+
         <div className="side-bar-filter">
             <div className="btn-side-bar-container" >
                 <div className="compose-container" onClick={() => updatedSentShown(true)} >
@@ -46,8 +51,8 @@ export function SideBarFilter({ updatedSentShown, filterCrit, onSetCriteria, unR
 
             </div>
 
-
         </div>
+
 
     )
 }

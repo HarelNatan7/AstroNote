@@ -6,6 +6,7 @@ import { SentMail } from "../cmps/sent-mail.jsx"
 import { SideBarFilter } from "../cmps/side-bar-filter.jsx"
 import { mailServices } from "../services/mail.service.js"
 
+
 export function MailIndex() {
     const [mails, setEmails] = useState([])
     const [filterCrit, setFilterCrit] = useState(mailServices.getFilterCriteria())
@@ -24,7 +25,6 @@ export function MailIndex() {
 
     useEffect(() => {
         loadUnreadLength()
-
 
     }, [mails])
 
@@ -50,6 +50,7 @@ export function MailIndex() {
             console.log(filterCrit);
             mailToUpdate.isTrash = true
             mailToUpdate.dateRemoved = Date.now()
+
         }
         if (field === 'trashToMail') {
             mailToUpdate.isTrash = false
@@ -117,6 +118,7 @@ export function MailIndex() {
     function getDraftMail(mail) {
         setdraftMail(mail)
         setIsSentShow(true)
+
     }
     return (
         <div>

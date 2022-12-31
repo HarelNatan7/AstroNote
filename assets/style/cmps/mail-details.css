@@ -38,6 +38,9 @@
     margin-inline-start: 3em;
 }
 
+.stared {
+    color: gold;
+}
 
 
 @media(max-width:500px) {
