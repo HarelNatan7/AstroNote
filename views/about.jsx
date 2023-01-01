@@ -5,7 +5,7 @@ export function About() {
 
         <div className="about-imgs-container">
             <img src="./assets/img/oren.jpg" alt="sss" />
-            <img src="./assets/img/Me.jpg" alt="sss" />
+            <img src="./assets/img/AI Me.jpg" alt="sss" />
         </div>
 
 
